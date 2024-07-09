@@ -14,12 +14,11 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   int counter = 0;
   int farmCounter = 0;
-  bool isFarmActive = false;
   late AnimationController _controller;
   late Animation<double> _animation;
   Timer? _farmTimer;
   DateTime? _farmStartTime;
-  static const Duration farmDuration = Duration(minutes: 5);
+  static const Duration farmDuration = Duration(minutes: 1);
 
   @override
   void initState() {
@@ -90,14 +89,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   }
 
   void _startFarmCounter(Duration duration) {
-    setState(() {
-      isFarmActive = true;
-    });
     _farmTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         farmCounter++;
       });
-      if (timer.tick >= duration.inSeconds) {
+      _saveFarmCounter();
+      if (DateTime.now().difference(_farmStartTime!) >= farmDuration) {
         _farmCounterComplete();
       }
     });
@@ -106,25 +103,36 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   void _farmCounterComplete() {
     _farmTimer?.cancel();
     setState(() {
-      isFarmActive = false;
+      _farmStartTime = null;
     });
+    _saveFarmCounter();
   }
 
-  void _handleFarmTap() {
-    if (!isFarmActive) {
+  void _onFarmTapped() {
+    if (_farmStartTime == null) {
+      setState(() {
+        _farmStartTime = DateTime.now();
+      });
+      _saveFarmCounter();
+      _startFarmCounter(farmDuration);
+    } else {
       setState(() {
         counter += farmCounter;
         farmCounter = 0;
         _farmStartTime = DateTime.now();
-        _saveCounter();
-        _saveFarmCounter();
       });
+      _saveCounter();
+      _saveFarmCounter();
       _startFarmCounter(farmDuration);
     }
   }
 
   double _getProgress() {
-    return farmCounter / farmDuration.inSeconds;
+    if (_farmStartTime == null) return 0;
+    final totalDuration = farmDuration.inSeconds;
+    final elapsedDuration =
+        DateTime.now().difference(_farmStartTime!).inSeconds;
+    return elapsedDuration / totalDuration;
   }
 
   @override
@@ -247,7 +255,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             ),
             Column(
               children: [
-                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -290,14 +297,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                             width: 60,
                             height: 4,
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(
-                                  10), // Adjust the value as needed
+                              borderRadius: BorderRadius.circular(10),
                               child: LinearProgressIndicator(
                                 value: _getProgress(),
                                 backgroundColor:
-                                    const Color.fromARGB(255, 97, 97, 97),
+                                    const Color.fromARGB(255, 102, 102, 102),
                                 valueColor: const AlwaysStoppedAnimation<Color>(
-                                    Color.fromARGB(255, 98, 255, 104)),
+                                    Color.fromARGB(255, 29, 255, 37)),
                                 minHeight: 10,
                               ),
                             ),
@@ -307,11 +313,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     )
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 GestureDetector(
-                  onTap: _handleFarmTap,
+                  onTap: _onFarmTapped,
                   child: Container(
                     height: 60,
                     decoration: BoxDecoration(
@@ -331,8 +335,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         ),
                         Text(
                           '$farmCounter',
-                          style: const TextStyle(
-                              color: Colors.black, fontSize: 20),
+                          style: TextStyle(color: Colors.black, fontSize: 20),
                         ),
                       ],
                     ),
