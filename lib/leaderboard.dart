@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Friends extends StatefulWidget {
-  const Friends({Key? key}) : super(key: key);
+class Leaderboard extends StatefulWidget {
+  const Leaderboard({Key? key}) : super(key: key);
 
   @override
-  State<Friends> createState() => _FriendsState();
+  State<Leaderboard> createState() => _LeaderboardState();
 }
 
-class _FriendsState extends State<Friends> {
+class _LeaderboardState extends State<Leaderboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +19,7 @@ class _FriendsState extends State<Friends> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
-              'Invite Friends',
+              'Leaderboard',
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 30,
@@ -60,7 +60,7 @@ class _FriendsState extends State<Friends> {
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                 elevation: 0,
-                primary: const Color.fromARGB(255, 0, 0, 0),
+                onPrimary: Color.fromARGB(255, 0, 0, 0),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),

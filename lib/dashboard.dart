@@ -44,6 +44,13 @@ class _DashboardState extends State<Dashboard> {
             label: 'Friends',
           ),
           BottomNavigationBarItem(
+            icon: Icon(
+              Icons.leaderboard,
+              size: 20,
+            ),
+            label: 'Leaderboard',
+          ),
+          BottomNavigationBarItem(
               icon: Icon(
                 Icons.notification_add,
                 size: 18,
