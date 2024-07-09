@@ -34,7 +34,7 @@ class _FriendsState extends State<Friends> {
               style: TextStyle(color: Colors.white, fontSize: 12),
             ),
             const SizedBox(
-              height: 20,
+              height: 50,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -48,13 +48,13 @@ class _FriendsState extends State<Friends> {
                   '0',
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 34,
+                      fontSize: 54,
                       fontWeight: FontWeight.w800),
                 ),
               ],
             ),
             const SizedBox(
-              height: 20,
+              height: 50,
             ),
             ElevatedButton(
               onPressed: () {},
@@ -63,7 +63,7 @@ class _FriendsState extends State<Friends> {
                 primary: Color.fromARGB(255, 0, 213, 7),
                 onPrimary: Color.fromARGB(255, 0, 0, 0),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(8),
                 ),
               ),
               child: const Text(
