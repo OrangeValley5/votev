@@ -14,6 +14,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   int counter = 0;
   int farmCounter = 0;
+  bool isFarmActive = false;
   late AnimationController _controller;
   late Animation<double> _animation;
   Timer? _farmTimer;
@@ -89,12 +90,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   }
 
   void _startFarmCounter(Duration duration) {
+    setState(() {
+      isFarmActive = true;
+    });
     _farmTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         farmCounter++;
       });
-      _saveFarmCounter();
-      if (DateTime.now().difference(_farmStartTime!) >= farmDuration) {
+      if (timer.tick >= duration.inSeconds) {
         _farmCounterComplete();
       }
     });
@@ -103,28 +106,25 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   void _farmCounterComplete() {
     _farmTimer?.cancel();
     setState(() {
-      _farmStartTime = null;
+      isFarmActive = false;
     });
-    _saveFarmCounter();
   }
 
-  void _onFarmTapped() {
-    if (_farmStartTime == null) {
-      setState(() {
-        _farmStartTime = DateTime.now();
-      });
-      _saveFarmCounter();
-      _startFarmCounter(farmDuration);
-    } else {
+  void _handleFarmTap() {
+    if (!isFarmActive) {
       setState(() {
         counter += farmCounter;
         farmCounter = 0;
         _farmStartTime = DateTime.now();
+        _saveCounter();
+        _saveFarmCounter();
       });
-      _saveCounter();
-      _saveFarmCounter();
       _startFarmCounter(farmDuration);
     }
+  }
+
+  double _getProgress() {
+    return farmCounter / farmDuration.inSeconds;
   }
 
   @override
@@ -247,6 +247,20 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             ),
             Column(
               children: [
+                Container(
+                  width: 100,
+                  height: 4,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(100)),
+                  child: LinearProgressIndicator(
+                    value: _getProgress(),
+                    backgroundColor: const Color.fromARGB(255, 235, 235, 235),
+                    valueColor: const AlwaysStoppedAnimation<Color>(
+                        Color.fromARGB(255, 81, 255, 87)),
+                    minHeight: 10,
+                  ),
+                ),
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -298,7 +312,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   height: 20,
                 ),
                 GestureDetector(
-                  onTap: _onFarmTapped,
+                  onTap: _handleFarmTap,
                   child: Container(
                     height: 60,
                     decoration: BoxDecoration(
@@ -318,7 +332,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         ),
                         Text(
                           '$farmCounter',
-                          style: TextStyle(color: Colors.black, fontSize: 20),
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 20),
                         ),
                       ],
                     ),
