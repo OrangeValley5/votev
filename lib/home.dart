@@ -202,6 +202,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                               Icons.wallet,
                               color: Colors.white,
                             ),
+                            SizedBox(
+                              width: 4,
+                            ),
                             Text(
                               'Connect wallet',
                               style:
@@ -326,7 +329,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       children: [
                         const Text(
                           'Farm',
-                          style: TextStyle(color: Colors.black, fontSize: 20),
+                          style: TextStyle(color: Colors.black, fontSize: 16),
                         ),
                         Image.asset(
                           'lib/images/bolts.png',
@@ -335,7 +338,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         ),
                         Text(
                           '$farmCounter',
-                          style: TextStyle(color: Colors.black, fontSize: 20),
+                          style: TextStyle(color: Colors.black, fontSize: 16),
                         ),
                       ],
                     ),
