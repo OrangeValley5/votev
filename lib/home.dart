@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -22,6 +23,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       upperBound: 1.0,
     );
     _animation = CurvedAnimation(parent: _controller, curve: Curves.bounceOut);
+    _loadCounter();
   }
 
   @override
@@ -34,9 +36,22 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     setState(() {
       counter++;
     });
+    _saveCounter();
     _controller.forward().then((_) {
       _controller.reverse();
     });
+  }
+
+  Future<void> _loadCounter() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      counter = prefs.getInt('counter') ?? 0;
+    });
+  }
+
+  Future<void> _saveCounter() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setInt('counter', counter);
   }
 
   @override

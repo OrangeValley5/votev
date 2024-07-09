@@ -29,6 +29,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  shared_preferences: ^2.0.13
+  shared_preferences_web: ^2.0.4
   #google_fonts: ^3.0.1
   
 
