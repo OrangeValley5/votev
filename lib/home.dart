@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Container(
-        padding: const EdgeInsets.only(left: 25, top: 50, right: 25),
+        padding: const EdgeInsets.only(left: 25, top: 20, right: 25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
