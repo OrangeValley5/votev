@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:votev/connects.dart';
+
+import 'notifications.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -95,28 +98,39 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                             width: 4,
                           ),
                           Text(
-                            'Upgrades',
+                            'Upgrade',
                             style: TextStyle(color: Colors.white, fontSize: 12),
                           ),
                         ],
                       ),
                     ),
-                    Container(
-                      padding: const EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 74, 74, 74),
-                          borderRadius: BorderRadius.circular(8)),
-                      child: Row(
-                        children: const [
-                          Icon(
-                            Icons.wallet,
-                            color: Colors.white,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Notifications(),
                           ),
-                          Text(
-                            'Connect wallet',
-                            style: TextStyle(color: Colors.white, fontSize: 12),
-                          ),
-                        ],
+                        );
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 74, 74, 74),
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Row(
+                          children: const [
+                            Icon(
+                              Icons.wallet,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              'Connect wallet',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 12),
+                            ),
+                          ],
+                        ),
                       ),
                     )
                   ],
@@ -169,7 +183,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         width: 4,
                       ),
                       const Text(
-                        'Upgrade',
+                        '700 / 700',
                         style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ],
