@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -77,9 +76,9 @@ class _HomeState extends State<Home> {
             ),
             Column(
               children: [
-                Text(
+                const Text(
                   '47563',
-                  style: GoogleFonts.poppins(
+                  style: TextStyle(
                       color: Colors.white,
                       fontSize: 34,
                       fontWeight: FontWeight.w800),
