@@ -18,7 +18,9 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black,
         onTap: (index) => {
           setState(() {
             myIndex = index;
@@ -47,8 +49,8 @@ class _DashboardState extends State<Dashboard> {
               ),
               label: 'Account'),
         ],
-        selectedItemColor: Colors.black, // Set selected item color
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.green, // Set selected item color
+        unselectedItemColor: Color.fromARGB(255, 225, 225, 225),
         showSelectedLabels: true,
         showUnselectedLabels: true, // Set unselected item color
       ),
