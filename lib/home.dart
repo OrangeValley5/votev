@@ -19,7 +19,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 100),
-      lowerBound: 0.4,
+      lowerBound: 0.6,
       upperBound: 1.0,
     );
     _animation = CurvedAnimation(parent: _controller, curve: Curves.bounceOut);
@@ -141,8 +141,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     scale: _animation,
                     child: Image.asset(
                       'lib/images/tapper.png',
-                      width: 150,
-                      height: 150,
+                      width: 220,
+                      height: 220,
                     ),
                   ),
                 )
