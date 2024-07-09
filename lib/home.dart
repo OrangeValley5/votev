@@ -47,7 +47,7 @@ class _HomeState extends State<Home> {
                             width: 4,
                           ),
                           Text(
-                            'Upgrade',
+                            'Upgrades',
                             style: TextStyle(color: Colors.white, fontSize: 12),
                           ),
                         ],
