@@ -27,14 +27,52 @@ class _HomeState extends State<Home> {
                   style: TextStyle(color: Colors.white, fontSize: 24),
                 ),
                 Row(
-                  children: [Container()],
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 74, 74, 74),
+                          borderRadius: BorderRadius.circular(8)),
+                      child: Row(
+                        children: const [
+                          Icon(
+                            Icons.wallet,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            'Upgrade',
+                            style: TextStyle(color: Colors.white, fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 74, 74, 74),
+                          borderRadius: BorderRadius.circular(8)),
+                      child: Row(
+                        children: const [
+                          Icon(
+                            Icons.wallet,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            'Connect wallet',
+                            style: TextStyle(color: Colors.white, fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 )
               ],
             ),
             Column(
               children: [
                 Text(
-                  '4756',
+                  '47563',
                   style: GoogleFonts.poppins(
                       color: Colors.white,
                       fontSize: 34,
