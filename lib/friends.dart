@@ -60,7 +60,6 @@ class _FriendsState extends State<Friends> {
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                 elevation: 0,
-                primary: Color.fromARGB(255, 0, 213, 7),
                 onPrimary: Color.fromARGB(255, 0, 0, 0),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
