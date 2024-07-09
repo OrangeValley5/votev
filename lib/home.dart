@@ -19,7 +19,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   late Animation<double> _animation;
   Timer? _farmTimer;
   DateTime? _farmStartTime;
-  static const Duration farmDuration = Duration(minutes: 1);
+  static const Duration farmDuration = Duration(minutes: 5);
 
   @override
   void initState() {
@@ -247,19 +247,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             ),
             Column(
               children: [
-                Container(
-                  width: 100,
-                  height: 4,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(100)),
-                  child: LinearProgressIndicator(
-                    value: _getProgress(),
-                    backgroundColor: const Color.fromARGB(255, 235, 235, 235),
-                    valueColor: const AlwaysStoppedAnimation<Color>(
-                        Color.fromARGB(255, 81, 255, 87)),
-                    minHeight: 10,
-                  ),
-                ),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -293,15 +280,27 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         children: [
                           Image.asset(
                             'lib/images/bolts.png',
-                            width: 20,
-                            height: 20,
+                            width: 14,
+                            height: 14,
                           ),
                           const SizedBox(
                             width: 4,
                           ),
-                          const Text(
-                            'Boost',
-                            style: TextStyle(color: Colors.white, fontSize: 12),
+                          Container(
+                            width: 60,
+                            height: 4,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(
+                                  10), // Adjust the value as needed
+                              child: LinearProgressIndicator(
+                                value: _getProgress(),
+                                backgroundColor:
+                                    const Color.fromARGB(255, 97, 97, 97),
+                                valueColor: const AlwaysStoppedAnimation<Color>(
+                                    Color.fromARGB(255, 98, 255, 104)),
+                                minHeight: 10,
+                              ),
+                            ),
                           ),
                         ],
                       ),
