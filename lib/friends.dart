@@ -56,15 +56,7 @@ class _FriendsState extends State<Friends> {
             const SizedBox(
               height: 50,
             ),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                elevation: 0,
-                primary: const Color.fromARGB(255, 0, 0, 0),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
+            Container(
               child: const Text(
                 ' Comin soon ',
                 style: TextStyle(fontSize: 14),

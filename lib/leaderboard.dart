@@ -56,20 +56,6 @@ class _LeaderboardState extends State<Leaderboard> {
             const SizedBox(
               height: 50,
             ),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                elevation: 0,
-                onPrimary: Color.fromARGB(255, 0, 0, 0),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-              child: const Text(
-                ' Comin soon ',
-                style: TextStyle(fontSize: 14),
-              ),
-            ),
           ],
         ),
       ),
