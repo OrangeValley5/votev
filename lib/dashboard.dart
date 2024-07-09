@@ -21,47 +21,45 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-            color: Colors.black, borderRadius: BorderRadius.circular(20)),
-        child: BottomNavigationBar(
-          backgroundColor: Colors.transparent,
-          onTap: (index) => {
-            setState(() {
-              myIndex = index;
-            })
-          },
-          currentIndex: myIndex,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                size: 18,
-              ),
-              label: 'Home',
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (index) => {
+          setState(() {
+            myIndex = index;
+          })
+        },
+        currentIndex: myIndex,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              size: 18,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.people,
-                size: 20,
-              ),
-              label: 'Friends',
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.people,
+              size: 20,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.leaderboard,
-                size: 20,
-              ),
-              label: 'Leaderboard',
+            label: 'Friends',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.leaderboard,
+              size: 20,
             ),
-          ],
-          selectedItemColor:
-              Color.fromARGB(255, 4, 255, 12), // Set selected item color
-          unselectedItemColor: Color.fromARGB(255, 225, 225, 225),
-          showSelectedLabels: true,
-          showUnselectedLabels: true, // Set unselected item color
-        ),
+            label: 'Leaderboard',
+          ),
+        ],
+        selectedFontSize: 11,
+        unselectedFontSize: 10,
+        selectedItemColor:
+            Color.fromARGB(255, 4, 255, 12), // Set selected item color
+        unselectedItemColor: Color.fromARGB(255, 225, 225, 225),
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        backgroundColor: Colors.black,
+        // Set unselected item color
       ),
       body: IndexedStack(
         children: widgetList,
