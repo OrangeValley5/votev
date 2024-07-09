@@ -139,12 +139,22 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             ),
             Column(
               children: [
-                Text(
-                  '$counter',
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 34,
-                      fontWeight: FontWeight.w800),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'lib/images/bolts.png',
+                      width: 20,
+                      height: 20,
+                    ),
+                    Text(
+                      '$counter',
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 34,
+                          fontWeight: FontWeight.w800),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 50,
