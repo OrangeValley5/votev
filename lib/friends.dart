@@ -66,7 +66,7 @@ class _FriendsState extends State<Friends> {
                 ),
               ),
               child: const Text(
-                ' Coming soon ',
+                ' Comin soon ',
                 style: TextStyle(fontSize: 14),
               ),
             ),
