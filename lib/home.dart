@@ -26,6 +26,9 @@ class _HomeState extends State<Home> {
                   'Votex',
                   style: TextStyle(color: Colors.white, fontSize: 24),
                 ),
+                const SizedBox(
+                  height: 20,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -39,6 +42,9 @@ class _HomeState extends State<Home> {
                           Icon(
                             Icons.wallet,
                             color: Colors.white,
+                          ),
+                          SizedBox(
+                            width: 4,
                           ),
                           Text(
                             'Upgrade',
