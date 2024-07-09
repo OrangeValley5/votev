@@ -8,6 +8,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int counter = 0; // State variable to keep track of the counter
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,10 +25,13 @@ class _HomeState extends State<Home> {
               children: [
                 const Text(
                   'Votex',
-                  style: TextStyle(color: Colors.white, fontSize: 24),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -76,9 +81,9 @@ class _HomeState extends State<Home> {
             ),
             Column(
               children: [
-                const Text(
-                  '47563',
-                  style: TextStyle(
+                Text(
+                  '$counter', // Display the counter value
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 34,
                       fontWeight: FontWeight.w800),
@@ -86,22 +91,73 @@ class _HomeState extends State<Home> {
                 const SizedBox(
                   height: 50,
                 ),
-                Image.asset(
-                  'lib/images/tapper.png',
-                  width: 150,
-                  height: 150,
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      counter++; // Increment the counter when tapped
+                    });
+                  },
+                  child: Image.asset(
+                    'lib/images/tapper.png',
+                    width: 150,
+                    height: 150,
+                  ),
                 )
               ],
+            ),
+            const SizedBox(
+              height: 50,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text(
-                  'Votex',
-                  style: TextStyle(color: Colors.white, fontSize: 24),
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(4),
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(8)),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'lib/images/upgrade.png',
+                        width: 20,
+                        height: 20,
+                      ),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      const Text(
+                        'Upgrade',
+                        style: TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(4),
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(8)),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'lib/images/bolts.png',
+                        width: 20,
+                        height: 20,
+                      ),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      const Text(
+                        'Boost',
+                        style: TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ],
+                  ),
                 )
               ],
             ),
+            const SizedBox(
+              height: 10,
+            )
           ],
         ),
       ),
