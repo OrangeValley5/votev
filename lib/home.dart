@@ -7,8 +7,37 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
-  int counter = 0; // State variable to keep track of the counter
+class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
+  int counter = 0;
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 100),
+      lowerBound: 0.4,
+      upperBound: 1.0,
+    );
+    _animation = CurvedAnimation(parent: _controller, curve: Curves.bounceOut);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _incrementCounter() {
+    setState(() {
+      counter++;
+    });
+    _controller.forward().then((_) {
+      _controller.reverse();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +111,7 @@ class _HomeState extends State<Home> {
             Column(
               children: [
                 Text(
-                  '$counter', // Display the counter value
+                  '$counter',
                   style: const TextStyle(
                       color: Colors.white,
                       fontSize: 34,
@@ -92,15 +121,14 @@ class _HomeState extends State<Home> {
                   height: 50,
                 ),
                 GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      counter++; // Increment the counter when tapped
-                    });
-                  },
-                  child: Image.asset(
-                    'lib/images/tapper.png',
-                    width: 150,
-                    height: 150,
+                  onTap: _incrementCounter,
+                  child: ScaleTransition(
+                    scale: _animation,
+                    child: Image.asset(
+                      'lib/images/tapper.png',
+                      width: 150,
+                      height: 150,
+                    ),
                   ),
                 )
               ],
