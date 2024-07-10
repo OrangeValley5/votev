@@ -145,7 +145,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           return Container(
             padding: const EdgeInsets.all(20),
             height: 550,
-            decoration: const BoxDecoration(),
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 27, 27, 27),
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -158,7 +160,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         width: 80,
                         height: 4,
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 207, 207, 207),
+                          color: Color.fromARGB(255, 81, 81, 81),
                           borderRadius: BorderRadius.circular(50),
                         ),
                       )
@@ -168,73 +170,17 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 const SizedBox(height: 8),
                 Center(
                   child: Container(
-                    height: 180,
-                    width: 180,
-                    child: Image.asset('lib/images/oketh.png'),
+                    height: 140,
+                    width: 140,
+                    child: Image.asset('lib/images/wally.png'),
                   ),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                const Text("Address",
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.black,
-                    )),
                 const SizedBox(
                   height: 6,
                 ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 238, 238, 238),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 24,
-                        height: 24,
-                        padding: const EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            color: Colors.white),
-                        child: Image.asset('lib/images/eth.png'),
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      const Expanded(
-                        child: Text(
-                          '0x3f7832693e244208f7786ef6c7e474692dbd078e',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 12,
-                              color: Color.fromARGB(255, 25, 25, 25)),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          padding: EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(50)),
-                          child: const Icon(
-                            Icons.copy,
-                            color: Color.fromARGB(255, 163, 163, 163),
-                            size: 15,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const Spacer(),
                 SizedBox(
                   width: double.infinity,
                   height: 50,
@@ -244,14 +190,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         //_showCustomDialog();
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: const Color(0xFF00B807),
+                        primary: Color.fromARGB(255, 0, 192, 6),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                       child: const Text(
-                        "Confirm",
-                        style: TextStyle(color: Colors.white),
+                        "Connect Wallet",
+                        style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                       )),
                 )
               ],
@@ -288,7 +234,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        _showModal();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Notifications(),
+                          ),
+                        );
                       },
                       child: Container(
                         padding: const EdgeInsets.all(4),
@@ -315,12 +266,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Notifications(),
-                          ),
-                        );
+                        _showModal();
                       },
                       child: Container(
                         padding: const EdgeInsets.all(4),

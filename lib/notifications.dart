@@ -48,7 +48,7 @@ class _NotificationsState extends State<Notifications> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
                       Text(
-                        'Connect Wllet',
+                        'Upgrades',
                         style: TextStyle(color: Colors.white),
                       ),
                     ],
