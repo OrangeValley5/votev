@@ -59,6 +59,7 @@ class _NotificationsState extends State<Notifications> {
                         children: [
                           Expanded(
                             child: Container(
+                              height: 160,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: const Color.fromARGB(255, 93, 93, 93),
@@ -87,10 +88,11 @@ class _NotificationsState extends State<Notifications> {
                             ),
                           ),
                           const SizedBox(
-                            width: 10,
+                            width: 20,
                           ),
                           Expanded(
                             child: Container(
+                              height: 150,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: const Color.fromARGB(255, 93, 93, 93),
