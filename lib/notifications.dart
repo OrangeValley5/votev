@@ -31,10 +31,11 @@ class _NotificationsState extends State<Notifications> {
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          color: Color.fromARGB(255, 163, 163, 163)),
+                          color: const Color.fromARGB(255, 93, 93, 93)),
                       child: const Center(
                         child: Icon(
                           Icons.arrow_back_ios,
+                          color: Colors.white,
                           size: 20,
                         ),
                       ),
