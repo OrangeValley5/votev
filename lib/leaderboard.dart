@@ -92,7 +92,7 @@ class _LeaderboardState extends State<Leaderboard> {
                 Row(
                   children: const [
                     Text(
-                      '1',
+                      '2',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
@@ -100,7 +100,7 @@ class _LeaderboardState extends State<Leaderboard> {
                       width: 4,
                     ),
                     Text(
-                      'Roger',
+                      'Judge',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
@@ -121,7 +121,7 @@ class _LeaderboardState extends State<Leaderboard> {
                         width: 4,
                       ),
                       const Text(
-                        '427M',
+                        '400M',
                         textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
@@ -150,7 +150,7 @@ class _LeaderboardState extends State<Leaderboard> {
                 Row(
                   children: const [
                     Text(
-                      '1',
+                      '3',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
@@ -158,7 +158,7 @@ class _LeaderboardState extends State<Leaderboard> {
                       width: 4,
                     ),
                     Text(
-                      'Roger',
+                      'Saslly',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
@@ -179,7 +179,7 @@ class _LeaderboardState extends State<Leaderboard> {
                         width: 4,
                       ),
                       const Text(
-                        '427M',
+                        '388M',
                         textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
@@ -208,7 +208,7 @@ class _LeaderboardState extends State<Leaderboard> {
                 Row(
                   children: const [
                     Text(
-                      '1',
+                      '4',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
@@ -216,7 +216,7 @@ class _LeaderboardState extends State<Leaderboard> {
                       width: 4,
                     ),
                     Text(
-                      'flames',
+                      'Flames',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
@@ -237,7 +237,7 @@ class _LeaderboardState extends State<Leaderboard> {
                         width: 4,
                       ),
                       const Text(
-                        '427M',
+                        '370M',
                         textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
@@ -266,7 +266,7 @@ class _LeaderboardState extends State<Leaderboard> {
                 Row(
                   children: const [
                     Text(
-                      '1',
+                      '5',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
@@ -274,7 +274,7 @@ class _LeaderboardState extends State<Leaderboard> {
                       width: 4,
                     ),
                     Text(
-                      'tunez',
+                      'Tunez',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
@@ -295,7 +295,7 @@ class _LeaderboardState extends State<Leaderboard> {
                         width: 4,
                       ),
                       const Text(
-                        '427M',
+                        '340M',
                         textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
@@ -324,7 +324,7 @@ class _LeaderboardState extends State<Leaderboard> {
                 Row(
                   children: const [
                     Text(
-                      '1',
+                      '6',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
@@ -353,7 +353,7 @@ class _LeaderboardState extends State<Leaderboard> {
                         width: 4,
                       ),
                       const Text(
-                        '427M',
+                        '291M',
                         textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
@@ -382,7 +382,7 @@ class _LeaderboardState extends State<Leaderboard> {
                 Row(
                   children: const [
                     Text(
-                      '1',
+                      '7',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
@@ -411,7 +411,7 @@ class _LeaderboardState extends State<Leaderboard> {
                         width: 4,
                       ),
                       const Text(
-                        '427M',
+                        '121M',
                         textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
