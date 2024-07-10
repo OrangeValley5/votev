@@ -67,9 +67,9 @@ class _NotificationsState extends State<Notifications> {
                               child: Column(
                                 children: [
                                   Image.asset(
-                                    'lib/images/bolts.png',
-                                    width: 14,
-                                    height: 14,
+                                    'lib/images/boltz.png',
+                                    width: 30,
+                                    height: 30,
                                   ),
                                   const Text('Regular Votev'),
                                   const Text('x3 tokens every hour'),
@@ -100,9 +100,9 @@ class _NotificationsState extends State<Notifications> {
                               child: Column(
                                 children: [
                                   Image.asset(
-                                    'lib/images/bolts.png',
-                                    width: 14,
-                                    height: 14,
+                                    'lib/images/boltz.png',
+                                    width: 30,
+                                    height: 30,
                                   ),
                                   const Text('Regular Votev'),
                                   const Text('x3 tokens every hour'),
