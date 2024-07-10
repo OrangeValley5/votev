@@ -56,8 +56,8 @@ class _LeaderboardState extends State<Leaderboard> {
                     children: [
                       Image.asset(
                         'lib/images/bolts.png',
-                        width: 14,
-                        height: 14,
+                        width: 12,
+                        height: 12,
                       ),
                       const SizedBox(
                         width: 4,
@@ -114,8 +114,8 @@ class _LeaderboardState extends State<Leaderboard> {
                     children: [
                       Image.asset(
                         'lib/images/bolts.png',
-                        width: 14,
-                        height: 14,
+                        width: 12,
+                        height: 12,
                       ),
                       const SizedBox(
                         width: 4,
@@ -172,8 +172,8 @@ class _LeaderboardState extends State<Leaderboard> {
                     children: [
                       Image.asset(
                         'lib/images/bolts.png',
-                        width: 14,
-                        height: 14,
+                        width: 12,
+                        height: 12,
                       ),
                       const SizedBox(
                         width: 4,
@@ -230,8 +230,8 @@ class _LeaderboardState extends State<Leaderboard> {
                     children: [
                       Image.asset(
                         'lib/images/bolts.png',
-                        width: 14,
-                        height: 14,
+                        width: 12,
+                        height: 12,
                       ),
                       const SizedBox(
                         width: 4,
@@ -288,8 +288,8 @@ class _LeaderboardState extends State<Leaderboard> {
                     children: [
                       Image.asset(
                         'lib/images/bolts.png',
-                        width: 14,
-                        height: 14,
+                        width: 12,
+                        height: 12,
                       ),
                       const SizedBox(
                         width: 4,
@@ -346,8 +346,8 @@ class _LeaderboardState extends State<Leaderboard> {
                     children: [
                       Image.asset(
                         'lib/images/bolts.png',
-                        width: 14,
-                        height: 14,
+                        width: 12,
+                        height: 12,
                       ),
                       const SizedBox(
                         width: 4,
@@ -404,8 +404,8 @@ class _LeaderboardState extends State<Leaderboard> {
                     children: [
                       Image.asset(
                         'lib/images/bolts.png',
-                        width: 14,
-                        height: 14,
+                        width: 12,
+                        height: 12,
                       ),
                       const SizedBox(
                         width: 4,

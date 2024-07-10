@@ -135,6 +135,131 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     return elapsedDuration / totalDuration;
   }
 
+  void _showModal() {
+    showModalBottomSheet(
+        context: context,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+        builder: (context) {
+          return Container(
+            padding: const EdgeInsets.all(20),
+            height: 550,
+            decoration: const BoxDecoration(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 80,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 207, 207, 207),
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Center(
+                  child: Container(
+                    height: 180,
+                    width: 180,
+                    child: Image.asset('lib/images/oketh.png'),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text("Address",
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.black,
+                    )),
+                const SizedBox(
+                  height: 6,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 238, 238, 238),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 24,
+                        height: 24,
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Colors.white),
+                        child: Image.asset('lib/images/eth.png'),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      const Expanded(
+                        child: Text(
+                          '0x3f7832693e244208f7786ef6c7e474692dbd078e',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 12,
+                              color: Color.fromARGB(255, 25, 25, 25)),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          padding: EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(50)),
+                          child: const Icon(
+                            Icons.copy,
+                            color: Color.fromARGB(255, 163, 163, 163),
+                            size: 15,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const Spacer(),
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        //_showCustomDialog();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: const Color(0xFF00B807),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: const Text(
+                        "Confirm",
+                        style: TextStyle(color: Colors.white),
+                      )),
+                )
+              ],
+            ),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,25 +286,31 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 74, 74, 74),
-                          borderRadius: BorderRadius.circular(8)),
-                      child: Row(
-                        children: const [
-                          Icon(
-                            Icons.wallet,
-                            color: Colors.white,
-                          ),
-                          SizedBox(
-                            width: 4,
-                          ),
-                          Text(
-                            'Upgrade',
-                            style: TextStyle(color: Colors.white, fontSize: 12),
-                          ),
-                        ],
+                    GestureDetector(
+                      onTap: () {
+                        _showModal();
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 74, 74, 74),
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Row(
+                          children: const [
+                            Icon(
+                              Icons.wallet,
+                              color: Colors.white,
+                            ),
+                            SizedBox(
+                              width: 4,
+                            ),
+                            Text(
+                              'Upgrade',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 12),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     GestureDetector(
