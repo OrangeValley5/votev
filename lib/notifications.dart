@@ -92,7 +92,7 @@ class _NotificationsState extends State<Notifications> {
                           ),
                           Expanded(
                             child: Container(
-                              height: 150,
+                              height: 160,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: const Color.fromARGB(255, 93, 93, 93),
