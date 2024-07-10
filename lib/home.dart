@@ -181,25 +181,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 const SizedBox(
                   height: 6,
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        //_showCustomDialog();
-                      },
-                      style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 0, 192, 6),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: const Text(
-                        "Connect Wallet",
-                        style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
-                      )),
-                )
+                Container(
+                    width: double.infinity,
+                    height: 50,
+                    child: const Text(
+                      "Connect Wallet",
+                      style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                    ))
               ],
             ),
           );
