@@ -318,7 +318,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   ],
                 ),
                 const SizedBox(
-                  height: 50,
+                  height: 40,
                 ),
                 GestureDetector(
                   onTap: _incrementCounter,
@@ -334,7 +334,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               ],
             ),
             const SizedBox(
-              height: 50,
+              height: 40,
             ),
             Column(
               children: [
@@ -424,6 +424,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 20,
+                )
               ],
             ),
             const SizedBox(
