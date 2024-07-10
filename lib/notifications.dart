@@ -53,6 +53,75 @@ class _NotificationsState extends State<Notifications> {
                       ),
                     ],
                   ),
+                  Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: const Color.fromARGB(255, 93, 93, 93),
+                              ),
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    'lib/images/bolts.png',
+                                    width: 14,
+                                    height: 14,
+                                  ),
+                                  const Text('Regular Votev'),
+                                  const Text('x3 tokens every hour'),
+                                  Row(
+                                    children: [
+                                      Image.asset(
+                                        'lib/images/bolts.png',
+                                        width: 14,
+                                        height: 14,
+                                      ),
+                                      const Text('100')
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: const Color.fromARGB(255, 93, 93, 93),
+                              ),
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    'lib/images/bolts.png',
+                                    width: 14,
+                                    height: 14,
+                                  ),
+                                  const Text('Regular Votev'),
+                                  const Text('x3 tokens every hour'),
+                                  Row(
+                                    children: [
+                                      Image.asset(
+                                        'lib/images/bolts.png',
+                                        width: 14,
+                                        height: 14,
+                                      ),
+                                      const Text('100')
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  )
                 ],
               ),
             ),
