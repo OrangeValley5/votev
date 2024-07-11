@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:js' as js;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:votev/connects.dart';
@@ -20,6 +21,15 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   DateTime? _farmStartTime;
   static const Duration farmDuration = Duration(minutes: 1);
 
+  double? viewportStableHeight;
+
+  void getViewportStableHeight() {
+    final height = js.context.callMethod('getViewportStableHeight');
+    setState(() {
+      viewportStableHeight = height.toDouble();
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -32,6 +42,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     _animation = CurvedAnimation(parent: _controller, curve: Curves.bounceOut);
     _loadCounter();
     _loadFarmCounter();
+    // Call the JavaScript function to get the stable height
+    //getViewportStableHeight();
   }
 
   @override
@@ -204,85 +216,86 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Votex',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Notifications(),
+            if (viewportStableHeight != null)
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Votex',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Notifications(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 74, 74, 74),
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Row(
+                            children: const [
+                              Icon(
+                                Icons.wallet,
+                                color: Colors.white,
+                              ),
+                              SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                'Upgrade',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 12),
+                              ),
+                            ],
                           ),
-                        );
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 74, 74, 74),
-                            borderRadius: BorderRadius.circular(8)),
-                        child: Row(
-                          children: const [
-                            Icon(
-                              Icons.wallet,
-                              color: Colors.white,
-                            ),
-                            SizedBox(
-                              width: 4,
-                            ),
-                            Text(
-                              'Upgrade',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 12),
-                            ),
-                          ],
                         ),
                       ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        _showModal();
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 74, 74, 74),
-                            borderRadius: BorderRadius.circular(8)),
-                        child: Row(
-                          children: const [
-                            Icon(
-                              Icons.wallet,
-                              color: Colors.white,
-                            ),
-                            SizedBox(
-                              width: 4,
-                            ),
-                            Text(
-                              'Connect wallet',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 12),
-                            ),
-                          ],
+                      GestureDetector(
+                        onTap: () {
+                          _showModal();
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 74, 74, 74),
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Row(
+                            children: const [
+                              Icon(
+                                Icons.wallet,
+                                color: Colors.white,
+                              ),
+                              SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                'Connect wallet',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 12),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
+                      )
+                    ],
+                  )
+                ],
+              ),
             const SizedBox(
               height: 25,
             ),
