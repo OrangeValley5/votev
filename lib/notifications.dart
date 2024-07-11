@@ -42,16 +42,22 @@ class _NotificationsState extends State<Notifications> {
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
                       Text(
                         'Upgrades',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18),
                       ),
                     ],
+                  ),
+                  const SizedBox(
+                    height: 20,
                   ),
                   Column(
                     children: [
@@ -59,30 +65,85 @@ class _NotificationsState extends State<Notifications> {
                         children: [
                           Expanded(
                             child: Container(
-                              height: 160,
+                              height: 170,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: const Color.fromARGB(255, 93, 93, 93),
+                                borderRadius: BorderRadius.circular(20),
+                                color: Color.fromARGB(255, 37, 37, 37),
                               ),
                               child: Column(
                                 children: [
-                                  Image.asset(
-                                    'lib/images/boltz.png',
-                                    width: 30,
-                                    height: 30,
+                                  Expanded(
+                                    child: Image.asset(
+                                      'lib/images/boltz.png',
+                                      width: 60,
+                                      height: 60,
+                                    ),
                                   ),
-                                  const Text('Regular Votev'),
-                                  const Text('x3 tokens every hour'),
-                                  Row(
-                                    children: [
-                                      Image.asset(
-                                        'lib/images/bolts.png',
-                                        width: 14,
-                                        height: 14,
-                                      ),
-                                      const Text('100')
-                                    ],
-                                  )
+                                  Container(
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: const BoxDecoration(
+                                        color: Color.fromARGB(255, 65, 65, 65),
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            bottomRight: Radius.circular(20))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        const Text(
+                                          'Regular Votev',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 14),
+                                        ),
+                                        const SizedBox(
+                                          height: 2,
+                                        ),
+                                        const Text(
+                                          'x3 tokens every hour',
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 218, 218, 218),
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 10),
+                                        ),
+                                        const SizedBox(
+                                          height: 6,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Center(
+                                                child: Transform.translate(
+                                              offset: const Offset(-4, 0),
+                                              child: Image.asset(
+                                                'lib/images/bolts.png',
+                                                width: 12,
+                                                height: 12,
+                                              ),
+                                            )),
+                                            Center(
+                                                child: Transform.translate(
+                                                    offset: const Offset(-4, 0),
+                                                    child: const Text(
+                                                      '100',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                          fontSize: 10),
+                                                    ))),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -92,36 +153,814 @@ class _NotificationsState extends State<Notifications> {
                           ),
                           Expanded(
                             child: Container(
-                              height: 160,
+                              height: 170,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: const Color.fromARGB(255, 93, 93, 93),
+                                borderRadius: BorderRadius.circular(20),
+                                color: Color.fromARGB(255, 37, 37, 37),
                               ),
                               child: Column(
                                 children: [
-                                  Image.asset(
-                                    'lib/images/boltz.png',
-                                    width: 30,
-                                    height: 30,
+                                  Expanded(
+                                    child: Image.asset(
+                                      'lib/images/boltz.png',
+                                      width: 60,
+                                      height: 60,
+                                    ),
                                   ),
-                                  const Text('Regular Votev'),
-                                  const Text('x3 tokens every hour'),
-                                  Row(
-                                    children: [
-                                      Image.asset(
-                                        'lib/images/bolts.png',
-                                        width: 14,
-                                        height: 14,
-                                      ),
-                                      const Text('100')
-                                    ],
-                                  )
+                                  Container(
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: const BoxDecoration(
+                                        color: Color.fromARGB(255, 65, 65, 65),
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            bottomRight: Radius.circular(20))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        const Text(
+                                          'Regular Votev',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 14),
+                                        ),
+                                        const SizedBox(
+                                          height: 2,
+                                        ),
+                                        const Text(
+                                          'x3 tokens every hour',
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 218, 218, 218),
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 10),
+                                        ),
+                                        const SizedBox(
+                                          height: 6,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Center(
+                                                child: Transform.translate(
+                                              offset: const Offset(-4, 0),
+                                              child: Image.asset(
+                                                'lib/images/bolts.png',
+                                                width: 12,
+                                                height: 12,
+                                              ),
+                                            )),
+                                            Center(
+                                                child: Transform.translate(
+                                                    offset: const Offset(-4, 0),
+                                                    child: const Text(
+                                                      '100',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                          fontSize: 10),
+                                                    ))),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
                           ),
                         ],
-                      )
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              height: 170,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Color.fromARGB(255, 37, 37, 37),
+                              ),
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    child: Image.asset(
+                                      'lib/images/boltz.png',
+                                      width: 60,
+                                      height: 60,
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: const BoxDecoration(
+                                        color: Color.fromARGB(255, 65, 65, 65),
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            bottomRight: Radius.circular(20))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        const Text(
+                                          'Regular Votev',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 14),
+                                        ),
+                                        const SizedBox(
+                                          height: 2,
+                                        ),
+                                        const Text(
+                                          'x3 tokens every hour',
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 218, 218, 218),
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 10),
+                                        ),
+                                        const SizedBox(
+                                          height: 6,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Center(
+                                                child: Transform.translate(
+                                              offset: const Offset(-4, 0),
+                                              child: Image.asset(
+                                                'lib/images/bolts.png',
+                                                width: 12,
+                                                height: 12,
+                                              ),
+                                            )),
+                                            Center(
+                                                child: Transform.translate(
+                                                    offset: const Offset(-4, 0),
+                                                    child: const Text(
+                                                      '100',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                          fontSize: 10),
+                                                    ))),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Expanded(
+                            child: Container(
+                              height: 170,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Color.fromARGB(255, 37, 37, 37),
+                              ),
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    child: Image.asset(
+                                      'lib/images/boltz.png',
+                                      width: 60,
+                                      height: 60,
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: const BoxDecoration(
+                                        color: Color.fromARGB(255, 65, 65, 65),
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            bottomRight: Radius.circular(20))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        const Text(
+                                          'Regular Votev',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 14),
+                                        ),
+                                        const SizedBox(
+                                          height: 2,
+                                        ),
+                                        const Text(
+                                          'x3 tokens every hour',
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 218, 218, 218),
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 10),
+                                        ),
+                                        const SizedBox(
+                                          height: 6,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Center(
+                                                child: Transform.translate(
+                                              offset: const Offset(-4, 0),
+                                              child: Image.asset(
+                                                'lib/images/bolts.png',
+                                                width: 12,
+                                                height: 12,
+                                              ),
+                                            )),
+                                            Center(
+                                                child: Transform.translate(
+                                                    offset: const Offset(-4, 0),
+                                                    child: const Text(
+                                                      '100',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                          fontSize: 10),
+                                                    ))),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              height: 170,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Color.fromARGB(255, 37, 37, 37),
+                              ),
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    child: Image.asset(
+                                      'lib/images/boltz.png',
+                                      width: 60,
+                                      height: 60,
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: const BoxDecoration(
+                                        color: Color.fromARGB(255, 65, 65, 65),
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            bottomRight: Radius.circular(20))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        const Text(
+                                          'Regular Votev',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 14),
+                                        ),
+                                        const SizedBox(
+                                          height: 2,
+                                        ),
+                                        const Text(
+                                          'x3 tokens every hour',
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 218, 218, 218),
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 10),
+                                        ),
+                                        const SizedBox(
+                                          height: 6,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Center(
+                                                child: Transform.translate(
+                                              offset: const Offset(-4, 0),
+                                              child: Image.asset(
+                                                'lib/images/bolts.png',
+                                                width: 12,
+                                                height: 12,
+                                              ),
+                                            )),
+                                            Center(
+                                                child: Transform.translate(
+                                                    offset: const Offset(-4, 0),
+                                                    child: const Text(
+                                                      '100',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                          fontSize: 10),
+                                                    ))),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Expanded(
+                            child: Container(
+                              height: 170,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Color.fromARGB(255, 37, 37, 37),
+                              ),
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    child: Image.asset(
+                                      'lib/images/boltz.png',
+                                      width: 60,
+                                      height: 60,
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: const BoxDecoration(
+                                        color: Color.fromARGB(255, 65, 65, 65),
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            bottomRight: Radius.circular(20))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        const Text(
+                                          'Regular Votev',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 14),
+                                        ),
+                                        const SizedBox(
+                                          height: 2,
+                                        ),
+                                        const Text(
+                                          'x3 tokens every hour',
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 218, 218, 218),
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 10),
+                                        ),
+                                        const SizedBox(
+                                          height: 6,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Center(
+                                                child: Transform.translate(
+                                              offset: const Offset(-4, 0),
+                                              child: Image.asset(
+                                                'lib/images/bolts.png',
+                                                width: 12,
+                                                height: 12,
+                                              ),
+                                            )),
+                                            Center(
+                                                child: Transform.translate(
+                                                    offset: const Offset(-4, 0),
+                                                    child: const Text(
+                                                      '100',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                          fontSize: 10),
+                                                    ))),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              height: 170,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Color.fromARGB(255, 37, 37, 37),
+                              ),
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    child: Image.asset(
+                                      'lib/images/boltz.png',
+                                      width: 60,
+                                      height: 60,
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: const BoxDecoration(
+                                        color: Color.fromARGB(255, 65, 65, 65),
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            bottomRight: Radius.circular(20))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        const Text(
+                                          'Regular Votev',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 14),
+                                        ),
+                                        const SizedBox(
+                                          height: 2,
+                                        ),
+                                        const Text(
+                                          'x3 tokens every hour',
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 218, 218, 218),
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 10),
+                                        ),
+                                        const SizedBox(
+                                          height: 6,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Center(
+                                                child: Transform.translate(
+                                              offset: const Offset(-4, 0),
+                                              child: Image.asset(
+                                                'lib/images/bolts.png',
+                                                width: 12,
+                                                height: 12,
+                                              ),
+                                            )),
+                                            Center(
+                                                child: Transform.translate(
+                                                    offset: const Offset(-4, 0),
+                                                    child: const Text(
+                                                      '100',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                          fontSize: 10),
+                                                    ))),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Expanded(
+                            child: Container(
+                              height: 170,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Color.fromARGB(255, 37, 37, 37),
+                              ),
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    child: Image.asset(
+                                      'lib/images/boltz.png',
+                                      width: 60,
+                                      height: 60,
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: const BoxDecoration(
+                                        color: Color.fromARGB(255, 65, 65, 65),
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            bottomRight: Radius.circular(20))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        const Text(
+                                          'Regular Votev',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 14),
+                                        ),
+                                        const SizedBox(
+                                          height: 2,
+                                        ),
+                                        const Text(
+                                          'x3 tokens every hour',
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 218, 218, 218),
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 10),
+                                        ),
+                                        const SizedBox(
+                                          height: 6,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Center(
+                                                child: Transform.translate(
+                                              offset: const Offset(-4, 0),
+                                              child: Image.asset(
+                                                'lib/images/bolts.png',
+                                                width: 12,
+                                                height: 12,
+                                              ),
+                                            )),
+                                            Center(
+                                                child: Transform.translate(
+                                                    offset: const Offset(-4, 0),
+                                                    child: const Text(
+                                                      '100',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                          fontSize: 10),
+                                                    ))),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              height: 170,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Color.fromARGB(255, 37, 37, 37),
+                              ),
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    child: Image.asset(
+                                      'lib/images/boltz.png',
+                                      width: 60,
+                                      height: 60,
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: const BoxDecoration(
+                                        color: Color.fromARGB(255, 65, 65, 65),
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            bottomRight: Radius.circular(20))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        const Text(
+                                          'Regular Votev',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 14),
+                                        ),
+                                        const SizedBox(
+                                          height: 2,
+                                        ),
+                                        const Text(
+                                          'x3 tokens every hour',
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 218, 218, 218),
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 10),
+                                        ),
+                                        const SizedBox(
+                                          height: 6,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Center(
+                                                child: Transform.translate(
+                                              offset: const Offset(-4, 0),
+                                              child: Image.asset(
+                                                'lib/images/bolts.png',
+                                                width: 12,
+                                                height: 12,
+                                              ),
+                                            )),
+                                            Center(
+                                                child: Transform.translate(
+                                                    offset: const Offset(-4, 0),
+                                                    child: const Text(
+                                                      '100',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                          fontSize: 10),
+                                                    ))),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Expanded(
+                            child: Container(
+                              height: 170,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Color.fromARGB(255, 37, 37, 37),
+                              ),
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    child: Image.asset(
+                                      'lib/images/boltz.png',
+                                      width: 60,
+                                      height: 60,
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: const BoxDecoration(
+                                        color: Color.fromARGB(255, 65, 65, 65),
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            bottomRight: Radius.circular(20))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        const Text(
+                                          'Regular Votev',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 14),
+                                        ),
+                                        const SizedBox(
+                                          height: 2,
+                                        ),
+                                        const Text(
+                                          'x3 tokens every hour',
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 218, 218, 218),
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 10),
+                                        ),
+                                        const SizedBox(
+                                          height: 6,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Center(
+                                                child: Transform.translate(
+                                              offset: const Offset(-4, 0),
+                                              child: Image.asset(
+                                                'lib/images/bolts.png',
+                                                width: 12,
+                                                height: 12,
+                                              ),
+                                            )),
+                                            Center(
+                                                child: Transform.translate(
+                                                    offset: const Offset(-4, 0),
+                                                    child: const Text(
+                                                      '100',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                          fontSize: 10),
+                                                    ))),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
                     ],
                   )
                 ],
