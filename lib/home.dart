@@ -23,13 +23,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
   double? viewportStableHeight;
 
-  void getViewportStableHeight() {
-    final height = js.context.callMethod('getViewportStableHeight');
-    setState(() {
-      viewportStableHeight = height.toDouble();
-    });
-  }
-
   @override
   void initState() {
     super.initState();
@@ -43,7 +36,18 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     _loadCounter();
     _loadFarmCounter();
     // Call the JavaScript function to get the stable height
-    //getViewportStableHeight();
+    getViewportStableHeight();
+  }
+
+  void getViewportStableHeight() {
+    final height = js.context.callMethod('getViewportStableHeight');
+    setState(() {
+      viewportStableHeight = height.toDouble();
+    });
+  }
+
+  void closeWindow() {
+    js.context.callMethod('closeWindow');
   }
 
   @override
