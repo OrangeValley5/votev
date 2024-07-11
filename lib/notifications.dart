@@ -27,16 +27,16 @@ class _NotificationsState extends State<Notifications> {
                       Navigator.pop(context);
                     },
                     child: Container(
-                      width: 30,
+                      width: 25,
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          color: const Color.fromARGB(255, 93, 93, 93)),
+                          color: Color.fromARGB(255, 61, 61, 61)),
                       child: const Center(
                         child: Icon(
                           Icons.arrow_back_ios,
                           color: Colors.white,
-                          size: 20,
+                          size: 16,
                         ),
                       ),
                     ),
