@@ -271,7 +271,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     ),
                     GestureDetector(
                       onTap: () {
-                        _showModal();
+                        // _showModal();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Connets(),
+                          ),
+                        );
                       },
                       child: Container(
                         padding: const EdgeInsets.all(4),

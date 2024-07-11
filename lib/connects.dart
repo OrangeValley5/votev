@@ -10,6 +10,139 @@ class Connets extends StatefulWidget {
 class _ConnetsState extends State<Connets> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Container(
+        padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
+        alignment: Alignment.center,
+        child: Column(
+          children: [
+            const Text(
+              'Wallet',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            Column(
+              children: const [
+                Text(
+                  'Total Balance',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  '\$0',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 40,
+                      fontWeight: FontWeight.w700),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    height: 50,
+                    padding: const EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color.fromARGB(255, 52, 52, 52)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'lib/images/upgrade.png',
+                          width: 20,
+                          height: 20,
+                        ),
+                        const SizedBox(
+                          width: 4,
+                        ),
+                        const Text(
+                          'Deposit',
+                          style: TextStyle(color: Colors.white, fontSize: 12),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: Container(
+                    height: 50,
+                    padding: const EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color.fromARGB(255, 52, 52, 52)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'lib/images/upgrade.png',
+                          width: 20,
+                          height: 20,
+                        ),
+                        const SizedBox(
+                          width: 4,
+                        ),
+                        const Text(
+                          'Withdraw',
+                          style: TextStyle(color: Colors.white, fontSize: 12),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Column(
+              children: [
+                Container(
+                  height: 50,
+                  padding: const EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Color.fromARGB(255, 52, 52, 52)),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'lib/images/upgrade.png',
+                        width: 20,
+                        height: 20,
+                      ),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      const Text(
+                        'Withdraw',
+                        style: TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
