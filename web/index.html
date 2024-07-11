@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.Telegram.WebApp) {
+        window.localStorage.setItem('viewportStableHeight', Telegram.WebApp.viewportStableHeight);
+      }
+    });
+  </script>
   <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
