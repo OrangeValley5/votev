@@ -36,10 +36,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     _loadCounter();
     _loadFarmCounter();
     // Call the JavaScript function to get the stable height
-    getViewportStableHeight();
+    // getViewportStableHeight();
   }
 
-  void getViewportStableHeight() {
+  /*void getViewportStableHeight() {
     final height = js.context.callMethod('getViewportStableHeight');
     setState(() {
       viewportStableHeight = height.toDouble();
@@ -48,7 +48,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
   void closeWindow() {
     js.context.callMethod('closeWindow');
-  }
+  } */
 
   @override
   void dispose() {
@@ -220,86 +220,86 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            if (viewportStableHeight != null)
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Votex',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Notifications(),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 74, 74, 74),
-                              borderRadius: BorderRadius.circular(8)),
-                          child: Row(
-                            children: const [
-                              Icon(
-                                Icons.wallet,
-                                color: Colors.white,
-                              ),
-                              SizedBox(
-                                width: 4,
-                              ),
-                              Text(
-                                'Upgrade',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 12),
-                              ),
-                            ],
+            //if (viewportStableHeight != null)
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Votex',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Notifications(),
                           ),
+                        );
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 74, 74, 74),
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Row(
+                          children: const [
+                            Icon(
+                              Icons.wallet,
+                              color: Colors.white,
+                            ),
+                            SizedBox(
+                              width: 4,
+                            ),
+                            Text(
+                              'Upgrade',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 12),
+                            ),
+                          ],
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          _showModal();
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 74, 74, 74),
-                              borderRadius: BorderRadius.circular(8)),
-                          child: Row(
-                            children: const [
-                              Icon(
-                                Icons.wallet,
-                                color: Colors.white,
-                              ),
-                              SizedBox(
-                                width: 4,
-                              ),
-                              Text(
-                                'Connect wallet',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 12),
-                              ),
-                            ],
-                          ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        _showModal();
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 74, 74, 74),
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Row(
+                          children: const [
+                            Icon(
+                              Icons.wallet,
+                              color: Colors.white,
+                            ),
+                            SizedBox(
+                              width: 4,
+                            ),
+                            Text(
+                              'Connect wallet',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 12),
+                            ),
+                          ],
                         ),
-                      )
-                    ],
-                  )
-                ],
-              ),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
             const SizedBox(
               height: 25,
             ),
