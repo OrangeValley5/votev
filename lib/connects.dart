@@ -117,14 +117,14 @@ class _ConnetsState extends State<Connets> {
               children: [
                 Container(
                   height: 50,
-                  padding: const EdgeInsets.all(4),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       color: Color.fromARGB(255, 52, 52, 52)),
                   child: Row(
                     children: [
                       Image.asset(
-                        'lib/images/upgrade.png',
+                        'lib/images/volts.png',
                         width: 20,
                         height: 20,
                       ),
@@ -132,7 +132,33 @@ class _ConnetsState extends State<Connets> {
                         width: 4,
                       ),
                       const Text(
-                        'Withdraw',
+                        'VOTEX',
+                        style: TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  height: 50,
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Color.fromARGB(255, 52, 52, 52)),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'lib/images/eth.png',
+                        width: 20,
+                        height: 20,
+                      ),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      const Text(
+                        'ETHEREUM',
                         style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ],
