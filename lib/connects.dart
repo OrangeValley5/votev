@@ -64,9 +64,9 @@ class _ConnetsState extends State<Connets> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'lib/images/upgrade.png',
-                          width: 20,
-                          height: 20,
+                          'lib/images/up.png',
+                          width: 16,
+                          height: 16,
                         ),
                         const SizedBox(
                           width: 4,
@@ -93,9 +93,9 @@ class _ConnetsState extends State<Connets> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'lib/images/upgrade.png',
-                          width: 20,
-                          height: 20,
+                          'lib/images/down.png',
+                          width: 16,
+                          height: 16,
                         ),
                         const SizedBox(
                           width: 4,
