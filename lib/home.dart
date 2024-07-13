@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'notifications.dart';
 import 'connects.dart';
+import 'dart:js' as js;
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -43,6 +44,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   }
 
   void _incrementCounter() {
+    js.context.callMethod('vibrate', [100]); // Trigger vibration
     setState(() {
       counter++;
     });

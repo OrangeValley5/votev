@@ -1,0 +1,8 @@
+function vibrate(duration) {
+    if (navigator.vibrate) {
+      navigator.vibrate(duration);
+    } else {
+      console.log("Vibration not supported on this device.");
+    }
+  }
+  
