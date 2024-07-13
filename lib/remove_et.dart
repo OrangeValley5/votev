@@ -61,6 +61,32 @@ class _RemoveEtState extends State<RemoveEt> {
         child: Column(
           children: [
             Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    width: 25,
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Color.fromARGB(255, 61, 61, 61)),
+                    child: const Center(
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
@@ -192,26 +218,29 @@ class _RemoveEtState extends State<RemoveEt> {
             const SizedBox(
               height: 100,
             ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              padding:
-                  const EdgeInsets.only(top: 15, bottom: 15, right: 8, left: 8),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Color.fromARGB(255, 69, 255, 100)
-                    .withOpacity(1), // Adjust opacity here
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Text(
-                    'Withdraw',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
+            GestureDetector(
+              onTap: () {},
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                padding: const EdgeInsets.only(
+                    top: 15, bottom: 15, right: 8, left: 8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Color.fromARGB(255, 69, 255, 100)
+                      .withOpacity(1), // Adjust opacity here
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: const [
+                    Text(
+                      'Withdraw',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Depo extends StatefulWidget {
   const Depo({Key? key}) : super(key: key);
@@ -6,6 +7,8 @@ class Depo extends StatefulWidget {
   @override
   State<Depo> createState() => _DepoState();
 }
+
+final String textToCopy = 'bc1qr3cd3lml75fxy64s7hdr0xagmrjnma5zpkdqmg';
 
 class _DepoState extends State<Depo> {
   @override
@@ -18,6 +21,32 @@ class _DepoState extends State<Depo> {
           alignment: Alignment.center,
           child: Column(
             children: [
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      width: 25,
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: Color.fromARGB(255, 61, 61, 61)),
+                      child: const Center(
+                        child: Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.white,
+                          size: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               const Text(
                 'DEPOSIT ASSET',
                 style: TextStyle(
@@ -45,18 +74,25 @@ class _DepoState extends State<Depo> {
                     color: const Color(0xFF262626)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
+                  children: [
+                    const Text(
                       '0x3f7832693e244208f7786ef6c7e474692dbd078e',
                       style: TextStyle(color: Colors.white, fontSize: 8),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 4,
                     ),
-                    Icon(
-                      Icons.copy,
-                      size: 14,
-                      color: Colors.white,
+                    GestureDetector(
+                      onTap: () {
+                        Clipboard.setData(
+                          ClipboardData(text: textToCopy),
+                        );
+                      },
+                      child: const Icon(
+                        Icons.copy,
+                        size: 14,
+                        color: Colors.white,
+                      ),
                     )
                   ],
                 ),
@@ -66,17 +102,19 @@ class _DepoState extends State<Depo> {
               ),
               Container(
                 padding: const EdgeInsets.only(
-                    top: 12, bottom: 12, right: 0, left: 8),
+                    top: 12, bottom: 12, right: 8, left: 8),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Color.fromARGB(255, 52, 52, 52)),
+                  borderRadius: BorderRadius.circular(8),
+                  color: Color.fromARGB(255, 69, 255, 100)
+                      .withOpacity(0.2), // Adjust opacity here
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: const [
                     Text(
                       'Make sure you deposit your tokens to the right address and network',
                       style: TextStyle(
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 8, 255, 70),
                           fontSize: 10,
                           fontWeight: FontWeight.w300),
                     ),
@@ -284,6 +322,9 @@ class _DepoState extends State<Depo> {
                     ),
                   ],
                 ),
+              ),
+              const SizedBox(
+                height: 40,
               ),
             ],
           ),
