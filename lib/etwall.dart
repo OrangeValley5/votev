@@ -140,7 +140,7 @@ class _EtwallState extends State<Etwall> {
                                   width: 4,
                                 ),
                                 const Text(
-                                  'Deposit',
+                                  'Deposit ',
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 12),
                                 ),
