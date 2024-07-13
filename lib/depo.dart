@@ -14,7 +14,7 @@ class _DepoState extends State<Depo> {
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
+          padding: const EdgeInsets.only(left: 25, top: 20, right: 25),
           alignment: Alignment.center,
           child: Column(
             children: [
@@ -42,7 +42,7 @@ class _DepoState extends State<Depo> {
                 padding: const EdgeInsets.all(4),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    color: Color.fromARGB(255, 52, 52, 52)),
+                    color: const Color(0xFF262626)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
@@ -65,17 +65,20 @@ class _DepoState extends State<Depo> {
                 height: 20,
               ),
               Container(
-                padding:
-                    const EdgeInsets.only(top: 8, bottom: 8, right: 8, left: 8),
+                padding: const EdgeInsets.only(
+                    top: 12, bottom: 12, right: 0, left: 8),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(12),
                     color: Color.fromARGB(255, 52, 52, 52)),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: const [
                     Text(
                       'Make sure you deposit your tokens to the right address and network',
-                      style: TextStyle(color: Colors.white, fontSize: 12),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w300),
                     ),
                   ],
                 ),
@@ -87,7 +90,7 @@ class _DepoState extends State<Depo> {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Color.fromARGB(255, 52, 52, 52)),
+                    color: Color(0xFF262626)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -112,8 +115,7 @@ class _DepoState extends State<Depo> {
                               Text(
                                 'Send coins to the wallet above in order to receive them here',
                                 style: TextStyle(
-                                    color: Color.fromARGB(255, 210, 210, 210),
-                                    fontSize: 12),
+                                    color: Color(0xFF909090), fontSize: 12),
                               ),
                             ],
                           ),
@@ -121,9 +123,9 @@ class _DepoState extends State<Depo> {
                         Column(
                           children: [
                             Image.asset(
-                              'lib/images/eth.png',
-                              width: 20,
-                              height: 20,
+                              'lib/images/eth2.png',
+                              width: 35,
+                              height: 35,
                             ),
                           ],
                         )
@@ -137,7 +139,7 @@ class _DepoState extends State<Depo> {
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
-                          color: Color.fromARGB(255, 67, 67, 67)),
+                          color: Color(0xFF3A3A3A)),
                     ),
                     const SizedBox(
                       height: 20,
@@ -152,10 +154,9 @@ class _DepoState extends State<Depo> {
                               borderRadius: BorderRadius.circular(
                                 20,
                               ),
-                              color: Color.fromARGB(255, 43, 43, 43),
+                              color: Color(0xFF262626),
                               border: Border.all(
-                                  color: Color.fromARGB(255, 22, 255, 34),
-                                  width: 2)),
+                                  color: Color(0xFF363636), width: 1)),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: const [
@@ -163,7 +164,7 @@ class _DepoState extends State<Depo> {
                                 '1',
                                 style: TextStyle(
                                     color: Color.fromARGB(255, 210, 210, 210),
-                                    fontSize: 14),
+                                    fontSize: 12),
                               ),
                             ],
                           ),
@@ -172,14 +173,15 @@ class _DepoState extends State<Depo> {
                           width: 10,
                         ),
                         Container(
-                          width: 200,
+                          width: 220,
                           child: Column(
                             children: const [
                               Text(
                                 'Send coins to the wallet above in order to receive them here',
                                 style: TextStyle(
                                     color: Color.fromARGB(255, 210, 210, 210),
-                                    fontSize: 12),
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 11),
                               ),
                             ],
                           ),
@@ -199,10 +201,9 @@ class _DepoState extends State<Depo> {
                               borderRadius: BorderRadius.circular(
                                 20,
                               ),
-                              color: Color.fromARGB(255, 43, 43, 43),
+                              color: const Color(0xFF262626),
                               border: Border.all(
-                                  color: Color.fromARGB(255, 22, 255, 34),
-                                  width: 2)),
+                                  color: const Color(0xFF363636), width: 2)),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: const [
@@ -210,7 +211,7 @@ class _DepoState extends State<Depo> {
                                 '2',
                                 style: TextStyle(
                                     color: Color.fromARGB(255, 210, 210, 210),
-                                    fontSize: 14),
+                                    fontSize: 12),
                               ),
                             ],
                           ),
@@ -219,14 +220,15 @@ class _DepoState extends State<Depo> {
                           width: 10,
                         ),
                         Container(
-                          width: 200,
+                          width: 220,
                           child: Column(
                             children: const [
                               Text(
-                                'Send coins to the wallet above in order to receive them here',
+                                'Go to any exchange of your choice. Choose withdraw and find this network',
                                 style: TextStyle(
                                     color: Color.fromARGB(255, 210, 210, 210),
-                                    fontSize: 12),
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 11),
                               ),
                             ],
                           ),
@@ -246,10 +248,9 @@ class _DepoState extends State<Depo> {
                               borderRadius: BorderRadius.circular(
                                 20,
                               ),
-                              color: Color.fromARGB(255, 43, 43, 43),
+                              color: const Color(0xFF262626),
                               border: Border.all(
-                                  color: Color.fromARGB(255, 22, 255, 34),
-                                  width: 2)),
+                                  color: const Color(0xFF363636), width: 2)),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: const [
@@ -257,7 +258,7 @@ class _DepoState extends State<Depo> {
                                 '3',
                                 style: TextStyle(
                                     color: Color.fromARGB(255, 210, 210, 210),
-                                    fontSize: 14),
+                                    fontSize: 12),
                               ),
                             ],
                           ),
@@ -266,14 +267,15 @@ class _DepoState extends State<Depo> {
                           width: 10,
                         ),
                         Container(
-                          width: 200,
+                          width: 220,
                           child: Column(
                             children: const [
                               Text(
-                                'Send coins to the wallet above in order to receive them here',
+                                'Paste the copies address above and click send. Confirm the transaction',
                                 style: TextStyle(
                                     color: Color.fromARGB(255, 210, 210, 210),
-                                    fontSize: 12),
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 11),
                               ),
                             ],
                           ),
