@@ -23,6 +23,28 @@ class _VoltswallState extends State<Voltswall> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        width: 25,
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Color.fromARGB(255, 61, 61, 61)),
+                        child: const Center(
+                          child: Icon(
+                            Icons.arrow_back_ios,
+                            color: Colors.white,
+                            size: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     const Text(
                       'Vortex Balance',
                       style: TextStyle(
@@ -148,15 +170,15 @@ class _VoltswallState extends State<Voltswall> {
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 50,
                   ),
                   Image.asset(
                     'lib/images/voltscancel.png',
-                    width: 16,
-                    height: 16,
+                    width: 30,
+                    height: 30,
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   const Text(
                     'No Transactions',
