@@ -59,7 +59,7 @@ class _VoltswallState extends State<Voltswall> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const Text(
-                          '\$0',
+                          '0.0',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 30,
@@ -71,6 +71,13 @@ class _VoltswallState extends State<Voltswall> {
                           height: 30,
                         ),
                       ],
+                    ),
+                    const Text(
+                      '\$0.00',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w300),
                     ),
                   ],
                 ),

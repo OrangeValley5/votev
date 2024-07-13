@@ -176,39 +176,50 @@ class _ConnetsState extends State<Connets> {
                 const SizedBox(
                   height: 10,
                 ),
-                Container(
-                  height: 50,
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: const Color.fromARGB(255, 52, 52, 52)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset(
-                            'lib/images/eth.png',
-                            width: 20,
-                            height: 20,
-                          ),
-                          const SizedBox(
-                            width: 4,
-                          ),
-                          const Text(
-                            'ETHEREUM',
-                            style: TextStyle(color: Colors.white, fontSize: 12),
-                          ),
-                        ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Voltswall(),
                       ),
-                      const Text(
-                        '0.00',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
+                    );
+                  },
+                  child: Container(
+                    height: 50,
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: const Color.fromARGB(255, 52, 52, 52)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Image.asset(
+                              'lib/images/eth.png',
+                              width: 20,
+                              height: 20,
+                            ),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                            const Text(
+                              'ETHEREUM',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 12),
+                            ),
+                          ],
+                        ),
+                        const Text(
+                          '0.00',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
                   ),
                 )
               ],
