@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class RemoveEt extends StatefulWidget {
   const RemoveEt({Key? key}) : super(key: key);
@@ -8,6 +10,47 @@ class RemoveEt extends StatefulWidget {
 }
 
 class _RemoveEtState extends State<RemoveEt> {
+  TextEditingController _ethController = TextEditingController();
+  String _dollarEquivalent = "0.00";
+  double _ethToUsdRate = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchEthToUsdRate();
+    _ethController.addListener(_updateDollarEquivalent);
+  }
+
+  Future<void> _fetchEthToUsdRate() async {
+    try {
+      final response = await http.get(Uri.parse(
+          'https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd'));
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        setState(() {
+          _ethToUsdRate = data['ethereum']['usd'].toDouble();
+        });
+      } else {
+        throw Exception('Failed to fetch exchange rate');
+      }
+    } catch (e) {
+      print('Error fetching exchange rate: $e');
+    }
+  }
+
+  void _updateDollarEquivalent() {
+    final ethAmount = double.tryParse(_ethController.text) ?? 0.0;
+    setState(() {
+      _dollarEquivalent = (ethAmount * _ethToUsdRate).toStringAsFixed(2);
+    });
+  }
+
+  @override
+  void dispose() {
+    _ethController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +123,7 @@ class _RemoveEtState extends State<RemoveEt> {
                   style: TextStyle(color: Colors.white, fontSize: 12),
                 ),
                 Text(
-                  'Available:  0.00 ETH',
+                  'Available: 0.00 ETH',
                   style: TextStyle(
                       color: Color.fromARGB(255, 175, 175, 175), fontSize: 10),
                 ),
@@ -97,6 +140,7 @@ class _RemoveEtState extends State<RemoveEt> {
                   color: Color.fromARGB(255, 60, 60, 60),
                   borderRadius: BorderRadius.circular(10)),
               child: TextFormField(
+                controller: _ethController,
                 style: const TextStyle(fontSize: 12, color: Colors.white),
                 decoration: const InputDecoration(
                   hintText: 'Enter amount',
@@ -113,10 +157,11 @@ class _RemoveEtState extends State<RemoveEt> {
               height: 4,
             ),
             Row(
-              children: const [
+              children: [
                 Text(
-                  'Dollar Equivalent: ',
-                  style: TextStyle(color: Colors.white, fontSize: 8),
+                  'Dollar Equivalent: \$$_dollarEquivalent',
+                  style: const TextStyle(
+                      color: Color.fromARGB(255, 185, 185, 185), fontSize: 10),
                 ),
               ],
             ),
