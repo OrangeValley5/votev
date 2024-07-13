@@ -79,7 +79,7 @@ class _RemoveEtState extends State<RemoveEt> {
               ],
             ),
             const SizedBox(
-              height: 80,
+              height: 50,
             ),
             Row(
               children: const [
