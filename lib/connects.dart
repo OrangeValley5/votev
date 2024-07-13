@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:votev/depo.dart';
 
 class Connets extends StatefulWidget {
   const Connets({Key? key}) : super(key: key);
@@ -53,29 +54,39 @@ class _ConnetsState extends State<Connets> {
             ),
             Row(
               children: [
-                Expanded(
-                  child: Container(
-                    height: 50,
-                    padding: const EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Color.fromARGB(255, 52, 52, 52)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'lib/images/up.png',
-                          width: 16,
-                          height: 16,
-                        ),
-                        const SizedBox(
-                          width: 4,
-                        ),
-                        const Text(
-                          'Deposit',
-                          style: TextStyle(color: Colors.white, fontSize: 12),
-                        ),
-                      ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Depo(),
+                      ),
+                    );
+                  },
+                  child: Expanded(
+                    child: Container(
+                      height: 50,
+                      padding: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Color.fromARGB(255, 52, 52, 52)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'lib/images/up.png',
+                            width: 16,
+                            height: 16,
+                          ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          const Text(
+                            'Deposit',
+                            style: TextStyle(color: Colors.white, fontSize: 12),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
