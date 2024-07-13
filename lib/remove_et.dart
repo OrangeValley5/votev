@@ -80,7 +80,7 @@ class _RemoveEtState extends State<RemoveEt> {
                   style: TextStyle(color: Colors.white, fontSize: 12),
                 ),
                 Text(
-                  'Available: 0.00 ETH',
+                  'Available:  0.00 ETH',
                   style: TextStyle(
                       color: Color.fromARGB(255, 175, 175, 175), fontSize: 10),
                 ),
