@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:votev/depo.dart';
 import 'package:votev/remove_et.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart'; // Import the spinkit package
@@ -113,7 +114,14 @@ class _EtwallState extends State<Etwall> {
                     children: [
                       Expanded(
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Depo(),
+                              ),
+                            );
+                          },
                           child: Container(
                             height: 50,
                             padding: const EdgeInsets.all(4),
