@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:votev/depo.dart';
+import 'package:votev/etwall.dart';
 import 'package:votev/voltwall.dart';
 
 class Connets extends StatefulWidget {
@@ -181,7 +182,7 @@ class _ConnetsState extends State<Connets> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Voltswall(),
+                        builder: (context) => const Etwall(),
                       ),
                     );
                   },
