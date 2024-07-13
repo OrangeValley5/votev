@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:votev/remove_et.dart';
 
 class Etwall extends StatefulWidget {
   const Etwall({Key? key}) : super(key: key);
@@ -119,28 +120,38 @@ class _EtwallState extends State<Etwall> {
                   width: 10,
                 ),
                 Expanded(
-                  child: Container(
-                    height: 50,
-                    padding: const EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Color.fromARGB(255, 52, 52, 52)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'lib/images/down.png',
-                          width: 16,
-                          height: 16,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const RemoveEt(),
                         ),
-                        const SizedBox(
-                          width: 4,
-                        ),
-                        const Text(
-                          'Withdraw',
-                          style: TextStyle(color: Colors.white, fontSize: 12),
-                        ),
-                      ],
+                      );
+                    },
+                    child: Container(
+                      height: 50,
+                      padding: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Color.fromARGB(255, 52, 52, 52)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'lib/images/down.png',
+                            width: 16,
+                            height: 16,
+                          ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          const Text(
+                            'Withdraw',
+                            style: TextStyle(color: Colors.white, fontSize: 12),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

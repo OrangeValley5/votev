@@ -39,10 +39,10 @@ class _VoltswallState extends State<Voltswall> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  Text(
-                    'You cannot make any $action until coin has been listed on exchange platforms',
+                  const Text(
+                    'You cannot perform any transactions yet until coin has been listed on exchange platforms',
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: Colors.white,
                         fontSize: 10,
                         fontWeight: FontWeight.w300),
