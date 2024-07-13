@@ -65,7 +65,7 @@ class _EtwallState extends State<Etwall> {
                             fontWeight: FontWeight.w700),
                       ),
                       Image.asset(
-                        'lib/images/volts.png',
+                        'lib/images/eth2.png',
                         width: 30,
                         height: 30,
                       ),
