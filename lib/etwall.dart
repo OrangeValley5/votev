@@ -45,7 +45,7 @@ class _EtwallState extends State<Etwall> {
                     height: 20,
                   ),
                   const Text(
-                    'Vortex Balance',
+                    'ETH Balance',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 12,
