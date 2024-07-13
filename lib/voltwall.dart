@@ -8,6 +8,79 @@ class Voltswall extends StatefulWidget {
 }
 
 class _VoltswallState extends State<Voltswall> {
+  void _showTransactionDialog(String action) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Padding(
+          padding: const EdgeInsets.all(40.0),
+          child: Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+              side: const BorderSide(
+                color: Color.fromARGB(255, 50, 255, 122),
+                width: 1.0,
+              ), // Border color and width
+            ),
+            backgroundColor:
+                Colors.grey[900], // Example of custom background color
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              height: 200,
+              child: Column(
+                mainAxisSize: MainAxisSize.min, // To constrain the height
+                children: [
+                  Text(
+                    '$action Confirmation',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    'You cannot make any $action until coin has been listed on exchange platforms',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w300),
+                  ),
+                  const SizedBox(height: 30),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: const Color.fromARGB(255, 50, 255, 122),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 20,
+                          ),
+                          child: const Text(
+                            'close',
+                            style: TextStyle(fontSize: 10, color: Colors.black),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +104,9 @@ class _VoltswallState extends State<Voltswall> {
                         width: 25,
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Color.fromARGB(255, 61, 61, 61)),
+                          borderRadius: BorderRadius.circular(5),
+                          color: const Color.fromARGB(255, 61, 61, 61),
+                        ),
                         child: const Center(
                           child: Icon(
                             Icons.arrow_back_ios,
@@ -46,11 +120,12 @@ class _VoltswallState extends State<Voltswall> {
                       height: 20,
                     ),
                     const Text(
-                      'Vortex Balance',
+                      'VORTEX Balance',
                       style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400),
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
@@ -61,9 +136,10 @@ class _VoltswallState extends State<Voltswall> {
                         const Text(
                           '0.0',
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 30,
-                              fontWeight: FontWeight.w700),
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
                         Image.asset(
                           'lib/images/volts.png',
@@ -75,9 +151,10 @@ class _VoltswallState extends State<Voltswall> {
                     const Text(
                       '\$0.00',
                       style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w300),
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w300,
+                      ),
                     ),
                   ],
                 ),
@@ -89,13 +166,16 @@ class _VoltswallState extends State<Voltswall> {
                 children: [
                   Expanded(
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        _showTransactionDialog('Deposit');
+                      },
                       child: Container(
                         height: 50,
                         padding: const EdgeInsets.all(4),
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: Color.fromARGB(255, 52, 52, 52)),
+                          borderRadius: BorderRadius.circular(8),
+                          color: const Color.fromARGB(255, 52, 52, 52),
+                        ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -109,8 +189,10 @@ class _VoltswallState extends State<Voltswall> {
                             ),
                             const Text(
                               'Deposit',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 12),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                              ),
                             ),
                           ],
                         ),
@@ -121,28 +203,37 @@ class _VoltswallState extends State<Voltswall> {
                     width: 10,
                   ),
                   Expanded(
-                    child: Container(
-                      height: 50,
-                      padding: const EdgeInsets.all(4),
-                      decoration: BoxDecoration(
+                    child: GestureDetector(
+                      onTap: () {
+                        _showTransactionDialog('Withdraw');
+                      },
+                      child: Container(
+                        height: 50,
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
-                          color: Color.fromARGB(255, 52, 52, 52)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'lib/images/down.png',
-                            width: 16,
-                            height: 16,
-                          ),
-                          const SizedBox(
-                            width: 4,
-                          ),
-                          const Text(
-                            'Withdraw',
-                            style: TextStyle(color: Colors.white, fontSize: 12),
-                          ),
-                        ],
+                          color: const Color.fromARGB(255, 52, 52, 52),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'lib/images/down.png',
+                              width: 16,
+                              height: 16,
+                            ),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                            const Text(
+                              'Withdraw',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -157,19 +248,21 @@ class _VoltswallState extends State<Voltswall> {
                     width: MediaQuery.of(context).size.width,
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: const Color.fromARGB(255, 52, 52, 52)),
+                      borderRadius: BorderRadius.circular(8),
+                      color: const Color.fromARGB(255, 52, 52, 52),
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
                           children: const [
                             Text(
-                              'Votex withdrawals and deposits will be open after the token goes live on exchanges',
+                              'Vortex withdrawals and deposits will be open after the token goes live on exchanges',
                               style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w300),
+                                color: Colors.white,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w300,
+                              ),
                             ),
                           ],
                         ),
@@ -190,9 +283,10 @@ class _VoltswallState extends State<Voltswall> {
                   const Text(
                     'No Transactions',
                     style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700),
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                   const SizedBox(
                     height: 8,
@@ -201,9 +295,10 @@ class _VoltswallState extends State<Voltswall> {
                     'You are yet to make a transaction. Any transaction made will show up here',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Color(0xFF8A8A8A),
-                        fontSize: 10,
-                        fontWeight: FontWeight.w300),
+                      color: Color(0xFF8A8A8A),
+                      fontSize: 10,
+                      fontWeight: FontWeight.w300,
+                    ),
                   ),
                 ],
               )

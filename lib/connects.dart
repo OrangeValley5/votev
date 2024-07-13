@@ -43,7 +43,7 @@ class _ConnetsState extends State<Connets> {
                   height: 10,
                 ),
                 Text(
-                  '\$0',
+                  '\$0.00',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 40,
