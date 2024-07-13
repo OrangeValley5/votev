@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'dart:js' as js;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:votev/connects.dart';
 import 'notifications.dart';
+import 'connects.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -21,8 +21,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   DateTime? _farmStartTime;
   static const Duration farmDuration = Duration(minutes: 1);
 
-  double? viewportStableHeight;
-
   @override
   void initState() {
     super.initState();
@@ -35,20 +33,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     _animation = CurvedAnimation(parent: _controller, curve: Curves.bounceOut);
     _loadCounter();
     _loadFarmCounter();
-    // Call the JavaScript function to get the stable height
-    // getViewportStableHeight();
   }
-
-  /*void getViewportStableHeight() {
-    final height = js.context.callMethod('getViewportStableHeight');
-    setState(() {
-      viewportStableHeight = height.toDouble();
-    });
-  }
-
-  void closeWindow() {
-    js.context.callMethod('closeWindow');
-  } */
 
   @override
   void dispose() {
@@ -220,7 +205,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            //if (viewportStableHeight != null)
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -332,7 +316,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   height: 40,
                 ),
                 GestureDetector(
-                  onTap: _incrementCounter,
+                  onTap: () {
+                    HapticFeedback
+                        .mediumImpact(); // Generates medium haptic feedback
+                    _incrementCounter();
+                  },
                   child: ScaleTransition(
                     scale: _animation,
                     child: Image.asset(
@@ -409,7 +397,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 ),
                 const SizedBox(height: 20),
                 GestureDetector(
-                  onTap: _onFarmTapped,
+                  onTap: () {
+                    HapticFeedback
+                        .mediumImpact(); // Generates medium haptic feedback
+                    _onFarmTapped();
+                  },
                   child: Container(
                     height: 60,
                     decoration: BoxDecoration(
