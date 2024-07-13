@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Depo extends StatefulWidget {
   const Depo({Key? key}) : super(key: key);
@@ -19,9 +18,9 @@ class _DepoState extends State<Depo> {
           alignment: Alignment.center,
           child: Column(
             children: [
-              Text(
+              const Text(
                 'DEPOSIT ASSET',
-                style: GoogleFonts.poppins(
+                style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.w700),
