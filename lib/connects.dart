@@ -54,16 +54,16 @@ class _ConnetsState extends State<Connets> {
             ),
             Row(
               children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const Depo(),
-                      ),
-                    );
-                  },
-                  child: Expanded(
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Depo(),
+                        ),
+                      );
+                    },
                     child: Container(
                       height: 50,
                       padding: const EdgeInsets.all(4),
