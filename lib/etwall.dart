@@ -78,6 +78,60 @@ class _EtwallState extends State<Etwall> with SingleTickerProviderStateMixin {
     // Close the loading dialog after 5 seconds
     Future.delayed(const Duration(seconds: 5), () {
       Navigator.of(context).pop();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const RemoveEt(),
+        ),
+      );
+    });
+  }
+
+  void _showLoadingDialog2() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return Stack(
+          children: [
+            // Blurred background
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+              child: Container(
+                color: Colors.black.withOpacity(0.2),
+              ),
+            ),
+            // Loading animation
+            Center(
+              child: AnimatedBuilder(
+                animation: _controller,
+                builder: (context, child) {
+                  return Transform.scale(
+                    scale: _scaleAnimation.value,
+                    child: child,
+                  );
+                },
+                child: Image.asset(
+                  'lib/images/bolts.png',
+                  width: 100,
+                  height: 100,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+
+    // Close the loading dialog after 5 seconds
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.of(context).pop();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const Depo(),
+        ),
+      );
     });
   }
 
@@ -165,12 +219,7 @@ class _EtwallState extends State<Etwall> with SingleTickerProviderStateMixin {
                       Expanded(
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Depo(),
-                              ),
-                            );
+                            _showLoadingDialog2();
                           },
                           child: Container(
                             height: 50,

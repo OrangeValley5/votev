@@ -57,8 +57,12 @@ class _FriendsState extends State<Friends> {
               height: 50,
             ),
             Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 29, 255, 37),
+                  borderRadius: BorderRadius.circular(10)),
               child: const Text(
-                ' Comin soon ',
+                ' Coming soon ',
                 style: TextStyle(fontSize: 14),
               ),
             ),
