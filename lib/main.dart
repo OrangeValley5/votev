@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:votev/dashboard.dart';
+import 'package:votev/firstscreen.dart';
 import 'package:votev/screens/home_screen.dart';
 import 'package:shared_preferences_web/shared_preferences_web.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Dashboard(),
+      home: const FirstScreen(),
     );
   }
 }
