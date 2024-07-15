@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:votev/connects.dart';
 import 'notifications.dart';
+import 'conts.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -159,55 +160,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20), topRight: Radius.circular(20))),
         builder: (context) {
-          return Container(
-            padding: const EdgeInsets.all(20),
-            height: 550,
-            decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 27, 27, 27),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 80,
-                        height: 4,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 81, 81, 81),
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Center(
-                  child: Container(
-                    height: 140,
-                    width: 140,
-                    child: Image.asset('lib/images/wally.png'),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const SizedBox(
-                  height: 6,
-                ),
-                Container(
-                    width: double.infinity,
-                    height: 50,
-                    child: const Text(
-                      "Connect Wallet",
-                      style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
-                    ))
-              ],
-            ),
-          );
+          return Conts();
         });
   }
 
@@ -248,7 +201,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         );
                       },
                       child: Container(
-                        padding: const EdgeInsets.all(4),
+                        padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
                             color: Color.fromARGB(255, 74, 74, 74),
                             borderRadius: BorderRadius.circular(8)),
@@ -257,6 +210,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                             Icon(
                               Icons.wallet,
                               color: Colors.white,
+                              size: 14,
                             ),
                             SizedBox(
                               width: 4,
@@ -273,30 +227,25 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     GestureDetector(
                       onTap: () {
                         HapticFeedback.heavyImpact();
-                        // _showModal();
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Connets(),
-                          ),
-                        );
+                        _showModal();
                       },
                       child: Container(
-                        padding: const EdgeInsets.all(4),
+                        padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
                             color: Color.fromARGB(255, 74, 74, 74),
                             borderRadius: BorderRadius.circular(8)),
                         child: Row(
                           children: const [
                             Icon(
-                              Icons.wallet,
+                              Icons.leaderboard,
                               color: Colors.white,
+                              size: 14,
                             ),
                             SizedBox(
                               width: 4,
                             ),
                             Text(
-                              'Connect wallet',
+                              'Leaderboard',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 12),
                             ),

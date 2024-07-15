@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:votev/connects.dart';
 import 'package:votev/friends.dart';
 import 'package:votev/home.dart';
 import 'package:votev/history.dart';
@@ -15,7 +16,7 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   final String message = '';
   int myIndex = 0;
-  List<Widget> widgetList = const [Home(), Friends(), Leaderboard(), Profile()];
+  List<Widget> widgetList = const [Home(), Friends(), Connets(), Profile()];
 
   @override
   Widget build(BuildContext context) {
@@ -45,10 +46,10 @@ class _DashboardState extends State<Dashboard> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.leaderboard,
+              Icons.wallet,
               size: 20,
             ),
-            label: 'Leaderboard',
+            label: 'Wallet',
           ),
         ],
         selectedFontSize: 11,
