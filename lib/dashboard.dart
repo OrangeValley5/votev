@@ -17,7 +17,7 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   final String message = '';
   int myIndex = 0;
-  List<Widget> widgetList = const [Home(), Friends(), Welcome(), Profile()];
+  List<Widget> widgetList = const [Home(), Friends(), Connets(), Profile()];
 
   @override
   Widget build(BuildContext context) {
