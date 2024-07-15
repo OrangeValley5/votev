@@ -309,7 +309,7 @@ class _DepoState extends State<Depo> {
                           child: Column(
                             children: const [
                               Text(
-                                'Paste the copies address above and click send. Confirm the transaction',
+                                'Paste the copied address above and click send. Confirm the transaction',
                                 style: TextStyle(
                                     color: Color.fromARGB(255, 210, 210, 210),
                                     fontWeight: FontWeight.w300,

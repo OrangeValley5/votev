@@ -76,7 +76,7 @@ class _EtwallState extends State<Etwall> with SingleTickerProviderStateMixin {
     );
 
     // Close the loading dialog after 5 seconds
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pop();
       Navigator.push(
         context,

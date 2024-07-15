@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:votev/dashboard.dart';
 import 'package:votev/firstscreen.dart';
+import 'package:votev/recovery.dart';
 import 'package:votev/screens/home_screen.dart';
 import 'package:shared_preferences_web/shared_preferences_web.dart';
+import 'package:votev/welcome.dart';
 
 void main() {
   runApp(const MyApp());

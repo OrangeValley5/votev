@@ -5,7 +5,7 @@ class Conts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.only(left: 25, top: 50, right: 25),
+      padding: const EdgeInsets.only(left: 25, top: 20, right: 25),
       decoration: const BoxDecoration(color: Colors.black),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -351,17 +351,6 @@ class Conts extends StatelessWidget {
                 ),
               )
             ],
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: 2,
-            padding: const EdgeInsets.all(4),
-            decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 65, 65, 65),
-            ),
           ),
           const SizedBox(
             height: 10,

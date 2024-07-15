@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:votev/connects.dart';
 import 'notifications.dart';
 import 'conts.dart';
+import 'dart:ui';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -22,6 +23,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   Timer? _farmTimer;
   DateTime? _farmStartTime;
   static const Duration farmDuration = Duration(minutes: 1);
+  late Animation<double> _scaleAnimation;
+  late AnimationController _controller2;
 
   double? viewportStableHeight;
 
@@ -39,6 +42,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     _loadFarmCounter();
     // Call the JavaScript function to get the stable height
     // getViewportStableHeight();
+
+    _scaleAnimation = Tween<double>(begin: 0.4, end: 0.6).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeInOut,
+      ),
+    );
   }
 
   /*void getViewportStableHeight() {
@@ -55,6 +65,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   @override
   void dispose() {
     _controller.dispose();
+    //_controller2.dispose();
     _farmTimer?.cancel();
     super.dispose();
   }
@@ -164,6 +175,49 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         });
   }
 
+  void _showLoadingDialog() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return Stack(
+          children: [
+            // Blurred background
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+              child: Container(
+                color: Colors.black.withOpacity(0.2),
+              ),
+            ),
+            // Loading animation
+            Center(
+              child: AnimatedBuilder(
+                animation: _controller,
+                builder: (context, child) {
+                  return Transform.scale(
+                    scale: _scaleAnimation.value,
+                    child: child,
+                  );
+                },
+                child: Image.asset(
+                  'lib/images/bolts.png',
+                  width: 100,
+                  height: 100,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+
+    // Close the loading dialog after 5 seconds
+    Future.delayed(const Duration(seconds: 1), () {
+      Navigator.of(context).pop();
+      _showModal();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -227,7 +281,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     GestureDetector(
                       onTap: () {
                         HapticFeedback.heavyImpact();
-                        _showModal();
+                        _showLoadingDialog();
                       },
                       child: Container(
                         padding: const EdgeInsets.all(8),

@@ -166,6 +166,7 @@ class _RemoveEtState extends State<RemoveEt> {
                   color: Color.fromARGB(255, 60, 60, 60),
                   borderRadius: BorderRadius.circular(10)),
               child: TextFormField(
+                keyboardType: TextInputType.number,
                 controller: _ethController,
                 style: const TextStyle(fontSize: 12, color: Colors.white),
                 decoration: const InputDecoration(
