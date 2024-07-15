@@ -25,7 +25,7 @@ class _EtwallState extends State<Etwall> with SingleTickerProviderStateMixin {
       duration: const Duration(seconds: 1),
     )..repeat(reverse: true);
 
-    _scaleAnimation = Tween<double>(begin: 0.6, end: 0.9).animate(
+    _scaleAnimation = Tween<double>(begin: 0.4, end: 0.6).animate(
       CurvedAnimation(
         parent: _controller,
         curve: Curves.easeInOut,
