@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:math';
 
 class Friends extends StatefulWidget {
   const Friends({Key? key}) : super(key: key);
@@ -8,6 +10,40 @@ class Friends extends StatefulWidget {
 }
 
 class _FriendsState extends State<Friends> {
+  List<String> invitedFriends = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadInvitedFriends();
+  }
+
+  Future<void> _loadInvitedFriends() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      invitedFriends = prefs.getStringList('invitedFriends') ?? [];
+    });
+  }
+
+  Future<void> _saveInvitedFriends() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setStringList('invitedFriends', invitedFriends);
+  }
+
+  void _inviteFriend() {
+    setState(() {
+      final inviteCode = _generateInviteCode();
+      invitedFriends.add(inviteCode);
+    });
+    _saveInvitedFriends();
+  }
+
+  String _generateInviteCode() {
+    final random = Random();
+    final code = List<int>.generate(6, (index) => random.nextInt(10));
+    return code.join('');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +65,7 @@ class _FriendsState extends State<Friends> {
               height: 20,
             ),
             const Text(
-              'Earn 20% for your direct referrals, 10% for their referrals, then 5%, 2.5%, and 1.25% for your fifth-level referrals. Plus earn up to 25,000 VORTEX for each invite, while your friend receives 30, 000!',
+              'Earn 20% for your direct referrals, 10% for their referrals, then 5%, 2.5%, and 1.25% for your fifth-level referrals. Plus earn up to 25,000 VORTEX for each invite, while your friend receives 30,000!',
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.white, fontSize: 12),
             ),
@@ -44,9 +80,9 @@ class _FriendsState extends State<Friends> {
                   width: 20,
                   height: 20,
                 ),
-                const Text(
-                  '0',
-                  style: TextStyle(
+                Text(
+                  '${invitedFriends.length}',
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 54,
                       fontWeight: FontWeight.w800),
@@ -57,13 +93,43 @@ class _FriendsState extends State<Friends> {
               height: 50,
             ),
             Container(
+              width: MediaQuery.of(context).size.width,
+              padding: const EdgeInsets.all(8),
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(10)),
+              child: const Text(
+                ' Friends  Invited',
+                style: TextStyle(fontSize: 14, color: Colors.white),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 29, 255, 37),
                   borderRadius: BorderRadius.circular(10)),
-              child: const Text(
-                ' Coming soon ',
-                style: TextStyle(fontSize: 14),
+              child: GestureDetector(
+                onTap: _inviteFriend,
+                child: const Text(
+                  ' Invite ',
+                  style: TextStyle(fontSize: 14),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: ListView.builder(
+                itemCount: invitedFriends.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(
+                      'Invite Code: ${invitedFriends[index]}',
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  );
+                },
               ),
             ),
           ],

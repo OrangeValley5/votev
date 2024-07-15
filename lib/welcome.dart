@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:votev/connects.dart';
-import 'package:votev/recovery.dart';
 
 class Welcome extends StatefulWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -62,6 +60,14 @@ class _WelcomeState extends State<Welcome> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
+  void _showSnackBar(BuildContext context) {
+    final snackBar = SnackBar(
+      content: Text('Continue button pressed!'),
+      duration: Duration(seconds: 2),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,14 +126,9 @@ class _WelcomeState extends State<Welcome> with SingleTickerProviderStateMixin {
             const SizedBox(height: 150),
             SlideTransition(
               position: _buttonAnimation,
-              child: GestureDetector(
+              child: InkWell(
                 onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Recovery(),
-                    ),
-                  );
+                  _showSnackBar(context);
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width,

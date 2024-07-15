@@ -1,21 +1,19 @@
 import 'dart:async';
-import 'dart:js' as js;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:votev/connects.dart';
-import 'notifications.dart';
-import 'conts.dart';
 import 'dart:ui';
+import 'conts.dart';
+import 'notifications.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Larry extends StatefulWidget {
+  const Larry({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  State<Larry> createState() => _LarryState();
 }
 
-class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
+class _LarryState extends State<Larry> with SingleTickerProviderStateMixin {
   int counter = 0;
   int farmCounter = 0;
   late AnimationController _controller;
@@ -23,8 +21,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   Timer? _farmTimer;
   DateTime? _farmStartTime;
   static const Duration farmDuration = Duration(minutes: 1);
-  late Animation<double> _scaleAnimation;
-  late AnimationController _controller2;
+  late Animation<double> _heartbeatAnimation;
+  late AnimationController _heartbeatController;
 
   double? viewportStableHeight;
 
@@ -38,34 +36,24 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       upperBound: 1.0,
     );
     _animation = CurvedAnimation(parent: _controller, curve: Curves.bounceOut);
+
+    _heartbeatController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    )..repeat(reverse: true);
+
+    _heartbeatAnimation = Tween<double>(begin: 0.8, end: 1.2).animate(
+      CurvedAnimation(parent: _heartbeatController, curve: Curves.easeInOut),
+    );
+
     _loadCounter();
     _loadFarmCounter();
-    // Call the JavaScript function to get the stable height
-    // getViewportStableHeight();
-
-    _scaleAnimation = Tween<double>(begin: 0.4, end: 0.6).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Curves.easeInOut,
-      ),
-    );
   }
-
-  /*void getViewportStableHeight() {
-    final height = js.context.callMethod('getViewportStableHeight');
-    setState(() {
-      viewportStableHeight = height.toDouble();
-    });
-  }
-
-  void closeWindow() {
-    js.context.callMethod('closeWindow');
-  } */
 
   @override
   void dispose() {
     _controller.dispose();
-    //_controller2.dispose();
+    _heartbeatController.dispose();
     _farmTimer?.cancel();
     super.dispose();
   }
@@ -192,10 +180,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             // Loading animation
             Center(
               child: AnimatedBuilder(
-                animation: _controller,
+                animation: _heartbeatController,
                 builder: (context, child) {
                   return Transform.scale(
-                    scale: _scaleAnimation.value,
+                    scale: _heartbeatAnimation.value,
                     child: child,
                   );
                 },
@@ -212,7 +200,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     );
 
     // Close the loading dialog after 5 seconds
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Navigator.of(context).pop();
       _showModal();
     });
@@ -228,7 +216,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            //if (viewportStableHeight != null)
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
