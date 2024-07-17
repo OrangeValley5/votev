@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:votev/dashboard.dart';
+import 'package:votev/signup.dart';
 import 'screens/screen1.dart';
 import 'screens/screen2.dart';
 import 'screens/screen3.dart';
@@ -31,7 +32,7 @@ class _OnboardState extends State<Onboard> {
     navigatorKey;
 
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
         body: StreamBuilder<User?>(
             stream: FirebaseAuth.instance.authStateChanges(),
             builder: (context, snapshot) {
@@ -60,11 +61,15 @@ class _OnboardState extends State<Onboard> {
                         children: [
                           GestureDetector(
                               onTap: () {
-                                //PUT SOMETHING HERE
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SignUpPage()),
+                                );
                               },
                               child: Text(
                                 '$buttonText',
-                                style: const TextStyle(),
+                                style: const TextStyle(color: Colors.white),
                               )),
                           SmoothPageIndicator(
                               controller: pageController,
@@ -73,7 +78,8 @@ class _OnboardState extends State<Onboard> {
                                   dotWidth: 8,
                                   dotHeight: 8,
                                   dotColor: Color.fromARGB(255, 221, 221, 221),
-                                  activeDotColor: const Color(0xFF00B807))),
+                                  activeDotColor:
+                                      Color.fromARGB(255, 0, 218, 7))),
                           currentPageIndex == 2
                               ? const SizedBox(
                                   width: 10,
@@ -81,12 +87,15 @@ class _OnboardState extends State<Onboard> {
                               : GestureDetector(
                                   onTap: () {
                                     pageController.nextPage(
-                                        duration: Duration(milliseconds: 500),
+                                        duration:
+                                            const Duration(milliseconds: 500),
                                         curve: Curves.easeIn);
                                   },
                                   child: const Text(
                                     'Next',
-                                    style: TextStyle(),
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
                                   ))
                         ],
                       ))

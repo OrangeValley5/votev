@@ -18,12 +18,13 @@ class _Screen1State extends State<Screen1> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-              width: 350,
+              width: 200,
               height: 280,
-              child: Image.asset('lib/images/p2p.png')),
+              child: Image.asset('lib/images/wally.png')),
           const Text(
             "Instantly convert your crypto to cash",
-            style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
+            style: TextStyle(
+                fontSize: 26, color: Colors.white, fontWeight: FontWeight.w700),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 5),

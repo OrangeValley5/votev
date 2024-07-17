@@ -18,9 +18,9 @@ class _Screen2State extends State<Screen2> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-              width: 300,
+              width: 200,
               height: 280,
-              child: Image.asset('lib/images/wallet.png')),
+              child: Image.asset('lib/images/wally.png')),
           const Text(
             "Get funded Instantly",
             style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700),

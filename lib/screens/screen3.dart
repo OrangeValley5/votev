@@ -18,9 +18,9 @@ class _Screen3State extends State<Screen3> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-              width: 350,
+              width: 200,
               height: 280,
-              child: Image.asset('lib/images/market.png')),
+              child: Image.asset('lib/images/wally.png')),
           const Text(
             "Best market rates",
             style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
