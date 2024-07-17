@@ -22,13 +22,14 @@ class _Screen3State extends State<Screen3> {
               height: 280,
               child: Image.asset('lib/images/wally.png')),
           const Text(
-            "Best market rates",
-            style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
+            "Invite friends and earn",
+            style: TextStyle(
+                fontSize: 26, color: Colors.white, fontWeight: FontWeight.w700),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 5),
           const Text(
-            "We offer you the best market rates on QuickXchange ",
+            "We offer you the best market rates on  ",
             style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,

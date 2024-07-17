@@ -22,8 +22,9 @@ class _Screen2State extends State<Screen2> {
               height: 280,
               child: Image.asset('lib/images/wally.png')),
           const Text(
-            "Get funded Instantly",
-            style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
+            "Complete exciting task",
+            style: TextStyle(
+                fontSize: 26, color: Colors.white, fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 5),
           const Text(

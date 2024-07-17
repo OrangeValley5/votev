@@ -22,7 +22,7 @@ class _Screen1State extends State<Screen1> {
               height: 280,
               child: Image.asset('lib/images/wally.png')),
           const Text(
-            "Instantly convert your crypto to cash",
+            "Your web3 mining tutor",
             style: TextStyle(
                 fontSize: 26, color: Colors.white, fontWeight: FontWeight.w700),
             textAlign: TextAlign.center,
