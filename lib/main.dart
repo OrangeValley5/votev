@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:votev/dashboard.dart';
 import 'package:votev/firstscreen.dart';
+import 'package:votev/onboard.dart';
 import 'package:votev/recovery.dart';
 import 'package:votev/refs.dart';
 import 'package:votev/screens/home_screen.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: SignUpPage(),
+      home: Onboard(),
     );
   }
 }
