@@ -19,6 +19,7 @@ class _FaqsState extends State<Faqs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,15 +35,16 @@ class _FaqsState extends State<Faqs> {
                       Navigator.pop(context);
                     },
                     child: Container(
-                      width: 30,
+                      width: 25,
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          color: Colors.white),
+                          color: Color.fromARGB(255, 46, 46, 46)),
                       child: const Center(
                         child: Icon(
                           Icons.arrow_back_ios,
-                          size: 20,
+                          size: 16,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -56,12 +58,14 @@ class _FaqsState extends State<Faqs> {
                       Text(
                         'FAQS ',
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w600),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
                       ),
                       Text(
                         'Frequently asked questions ',
                         style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 12,
                             color: Color.fromARGB(255, 159, 159, 159),
                             fontWeight: FontWeight.w300),
                       ),
@@ -97,6 +101,7 @@ class _FaqsState extends State<Faqs> {
             },
             children: [
               ExpansionPanel(
+                backgroundColor: Color.fromARGB(255, 27, 27, 27),
                 headerBuilder: (BuildContext context, bool isExpanded) {
                   return ListTile(
                     title: Text(
@@ -104,7 +109,7 @@ class _FaqsState extends State<Faqs> {
                       style: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 12,
-                        color: Color.fromARGB(255, 25, 25, 25),
+                        color: Color.fromARGB(255, 255, 255, 255),
                       ),
                     ),
                   );
@@ -115,7 +120,7 @@ class _FaqsState extends State<Faqs> {
                     style: const TextStyle(
                       fontWeight: FontWeight.w300,
                       fontSize: 12,
-                      color: Color.fromARGB(255, 159, 159, 159),
+                      color: Color.fromARGB(255, 120, 120, 120),
                     ),
                   ),
                 ),
@@ -144,29 +149,29 @@ class Item {
 List<Item> generateItems() {
   return [
     Item(
-      headerValue: 'What is QuickXchange?',
+      headerValue: 'What is Votex?',
       expandedValue:
           'QuickXchange is a crypto-to-fiat payment service that enables users to easily and seamlessly convert crypto to fiat(Naira), and directly send to wallet or bank account.',
     ),
     Item(
-      headerValue: 'How does QuickXchange work?',
+      headerValue: 'How does Votex work?',
       expandedValue:
           'The QuickXchange app works using a blockchain infrastructure, and a local P2P settlement system. Users are required to download the app and send assets to the provided wallet address, which is then converted to Naira and sent to their bank account.',
     ),
 
     Item(
-      headerValue: 'Does QuickXchange support all crypto-currencies?',
+      headerValue: 'Does Votex support all crypto-currencies?',
       expandedValue:
           'No, Not at this time. We only support a few assets for now which includes, BTC, ETH, USDT and USDC. However we are making plans to increase our supported cryptocurrencies',
     ),
     Item(
-      headerValue: 'Who can use QuickXchange?',
+      headerValue: 'Who can use Votex?',
       expandedValue:
           'Anyone can make use of our service. Crypto users, Diaspora community, Remote workers and freelancers',
     ),
 
     Item(
-      headerValue: 'How can i start using the QuickXchange app?',
+      headerValue: 'How can i start using the Votex app?',
       expandedValue:
           '1.Download and install the app from any of the stores 2.Open the app after downloading 3. Register your required bank or leave it empty to receive funds in your wallet 4.Now you are all set 5.Navigate to the asset you want to convert from the home screen and copy the provided address  6.Send asset and receive funds immediately after confirmation. ',
     ),
