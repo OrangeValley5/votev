@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:votev/dashboard.dart';
+import 'package:votev/faqs.dart';
 import 'package:votev/firstscreen.dart';
 import 'package:votev/onboard.dart';
 import 'package:votev/recovery.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: Onboard(),
+      home: Faqs(),
     );
   }
 }
