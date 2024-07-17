@@ -20,7 +20,7 @@ class _Screen1State extends State<Screen1> {
           Container(
               width: 200,
               height: 280,
-              child: Image.asset('lib/images/wally.png')),
+              child: Image.asset('lib/images/handshake.png')),
           const Text(
             "Your web3 mining tutor",
             style: TextStyle(

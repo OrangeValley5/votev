@@ -20,7 +20,7 @@ class _Screen3State extends State<Screen3> {
           Container(
               width: 200,
               height: 280,
-              child: Image.asset('lib/images/wally.png')),
+              child: Image.asset('lib/images/refers.png')),
           const Text(
             "Invite friends and earn",
             style: TextStyle(

@@ -182,7 +182,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 4,
                                         ),
                                         const Text(
-                                          'Regular Votev',
+                                          'Mega Votev',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,
@@ -192,7 +192,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 2,
                                         ),
                                         const Text(
-                                          'x3 tokens every hour',
+                                          'x6 tokens every hour',
                                           style: TextStyle(
                                               color: Color.fromARGB(
                                                   255, 218, 218, 218),
@@ -274,7 +274,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 4,
                                         ),
                                         const Text(
-                                          'Regular Votev',
+                                          'Ultra Votev',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,
@@ -284,7 +284,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 2,
                                         ),
                                         const Text(
-                                          'x3 tokens every hour',
+                                          'x9 tokens every hour',
                                           style: TextStyle(
                                               color: Color.fromARGB(
                                                   255, 218, 218, 218),
@@ -362,7 +362,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 4,
                                         ),
                                         const Text(
-                                          'Regular Votev',
+                                          'Hyper Votev',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,
@@ -372,7 +372,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 2,
                                         ),
                                         const Text(
-                                          'x3 tokens every hour',
+                                          'x12 tokens every hour',
                                           style: TextStyle(
                                               color: Color.fromARGB(
                                                   255, 218, 218, 218),
@@ -454,7 +454,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 4,
                                         ),
                                         const Text(
-                                          'Regular Votev',
+                                          'Thunder Votev',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,
@@ -464,7 +464,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 2,
                                         ),
                                         const Text(
-                                          'x3 tokens every hour',
+                                          'x15 tokens every hour',
                                           style: TextStyle(
                                               color: Color.fromARGB(
                                                   255, 218, 218, 218),
@@ -542,7 +542,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 4,
                                         ),
                                         const Text(
-                                          'Regular Votev',
+                                          'Turbo Votev',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,
@@ -552,7 +552,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 2,
                                         ),
                                         const Text(
-                                          'x3 tokens every hour',
+                                          'x20 tokens every hour',
                                           style: TextStyle(
                                               color: Color.fromARGB(
                                                   255, 218, 218, 218),

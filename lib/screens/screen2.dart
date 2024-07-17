@@ -20,7 +20,7 @@ class _Screen2State extends State<Screen2> {
           Container(
               width: 200,
               height: 280,
-              child: Image.asset('lib/images/wally.png')),
+              child: Image.asset('lib/images/coindrop.png')),
           const Text(
             "Complete exciting task",
             style: TextStyle(
