@@ -12,7 +12,8 @@ class Friendz extends StatefulWidget {
 
 class _FriendzState extends State<Friendz> {
   List<String> invitedFriends = [];
-  String? referralCode;
+  //String? referralCode;
+  String referralCode = '';
 
   @override
   void initState() {
