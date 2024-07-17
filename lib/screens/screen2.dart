@@ -35,6 +35,9 @@ class _Screen2State extends State<Screen2> {
                 color: Color.fromARGB(255, 189, 189, 189)),
             textAlign: TextAlign.center,
           ),
+          const SizedBox(
+            height: 100,
+          ),
         ],
       ),
     );

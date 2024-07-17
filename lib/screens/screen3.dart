@@ -19,7 +19,7 @@ class _Screen3State extends State<Screen3> {
         children: [
           Container(
               width: 200,
-              height: 280,
+              height: 250,
               child: Image.asset('lib/images/refers.png')),
           const Text(
             "Invite friends and earn",
@@ -35,6 +35,9 @@ class _Screen3State extends State<Screen3> {
                 fontWeight: FontWeight.w400,
                 color: Color.fromARGB(255, 189, 189, 189)),
             textAlign: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 100,
           ),
         ],
       ),
