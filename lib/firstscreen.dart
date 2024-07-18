@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:votev/dashboard.dart';
 import 'package:votev/onboard.dart';
+import 'package:votev/signup.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({Key? key}) : super(key: key);
@@ -34,8 +35,7 @@ class _FirstScreenState extends State<FirstScreen>
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const Onboard(),
+          pageBuilder: (context, animation, secondaryAnimation) => SignUpPage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(
               opacity: animation,

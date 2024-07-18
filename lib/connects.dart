@@ -12,6 +12,95 @@ class Connets extends StatefulWidget {
 
 class _ConnetsState extends State<Connets> {
   @override
+  void initState() {
+    super.initState();
+    _showWelcomeDialog();
+  }
+
+  void _showWelcomeDialog() {
+    Future.delayed(Duration.zero, () {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+                side: const BorderSide(
+                  color: Color.fromARGB(255, 50, 255, 122),
+                  width: 1.0,
+                ), // Border color and width
+              ),
+              backgroundColor: Color.fromARGB(
+                  255, 24, 24, 24), // Example of custom background color
+              child: Container(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min, // To constrain the height
+                  children: [
+                    Container(
+                        width: 80,
+                        height: 80,
+                        child: Image.asset('lib/images/usdt.png')),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const Text(
+                      'Congratulations !',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      'Yay ! you just earned 10 usdt for joining. We are giving out 10 usdt to the first 1000 players who join the volts telegram game. You can view this in your wallet',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 183, 183, 183),
+                          fontSize: 10,
+                          fontWeight: FontWeight.w300),
+                    ),
+                    const SizedBox(height: 30),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 10,
+                              horizontal: 20,
+                            ),
+                            child: const Text(
+                              'Continue',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      );
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,

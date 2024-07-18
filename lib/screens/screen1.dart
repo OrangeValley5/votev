@@ -20,16 +20,16 @@ class _Screen1State extends State<Screen1> {
           Container(
               width: 200,
               height: 280,
-              child: Image.asset('lib/images/handshake.png')),
+              child: Image.asset('lib/images/coindrop.png')),
           const Text(
-            "Your web3 mining tutor",
+            "Mine, Earn, Prosper",
             style: TextStyle(
                 fontSize: 26, color: Colors.white, fontWeight: FontWeight.w700),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 5),
           const Text(
-            "Instantly convert your crypto to cash without any stress or hassle",
+            "Turn your taps into crypto rewards! Enjoy free taps ",
             style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
