@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:votev/dashboard.dart';
+import 'package:votev/etwall.dart';
 import 'package:votev/faqs.dart';
 import 'package:votev/firstscreen.dart';
 import 'package:votev/onboard.dart';
 import 'package:votev/recovery.dart';
 import 'package:votev/refs.dart';
+import 'package:votev/remove_et.dart';
 import 'package:votev/screens/home_screen.dart';
 import 'package:shared_preferences_web/shared_preferences_web.dart';
 import 'package:votev/signup.dart';

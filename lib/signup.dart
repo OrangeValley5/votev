@@ -68,10 +68,6 @@ class _SignUpPageState extends State<SignUpPage> {
       await prefs.setString('userEmail', email);
       await prefs.setString('referralCode', newReferralCode);
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Sign-up successful!')),
-      );
-
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -118,7 +114,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 controller: _emailController,
                 style: const TextStyle(fontSize: 12, color: Colors.white),
                 decoration: const InputDecoration(
-                  labelText: 'Email',
+                  labelText: 'Nickname',
                   labelStyle: TextStyle(
                       fontSize: 12, color: Color.fromARGB(255, 133, 133, 133)),
                   enabledBorder:

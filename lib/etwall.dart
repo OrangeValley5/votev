@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:votev/depo.dart';
 import 'package:votev/remove_et.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart'; // Import the spinkit package
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'dart:async';
 import 'dart:ui';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:intl/intl.dart'; // For date formatting
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class Etwall extends StatefulWidget {
   const Etwall({Key? key}) : super(key: key);
@@ -16,6 +20,10 @@ class Etwall extends StatefulWidget {
 class _EtwallState extends State<Etwall> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
+  DateTime currentDate = DateTime.now();
+  double usdtBalance = 15;
+  double usdtToDollarRate = 1.0; // Default value
+  double dollarEquivalent = 0.0;
 
   @override
   void initState() {
@@ -31,6 +39,17 @@ class _EtwallState extends State<Etwall> with SingleTickerProviderStateMixin {
         curve: Curves.easeInOut,
       ),
     );
+
+    // Fetch the conversion rate
+    fetchUsdtToDollarRate().then((rate) {
+      setState(() {
+        usdtToDollarRate = rate;
+        dollarEquivalent = usdtBalance * usdtToDollarRate;
+      });
+    });
+
+    // Save current date to SharedPreferences
+    saveDateToSharedPreferences(currentDate);
   }
 
   @override
@@ -75,7 +94,7 @@ class _EtwallState extends State<Etwall> with SingleTickerProviderStateMixin {
       },
     );
 
-    // Close the loading dialog after 5 seconds
+    // Close the loading dialog after 3 seconds
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pop();
       Navigator.push(
@@ -123,7 +142,7 @@ class _EtwallState extends State<Etwall> with SingleTickerProviderStateMixin {
       },
     );
 
-    // Close the loading dialog after 5 seconds
+    // Close the loading dialog after 3 seconds
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pop();
       Navigator.push(
@@ -133,6 +152,33 @@ class _EtwallState extends State<Etwall> with SingleTickerProviderStateMixin {
         ),
       );
     });
+  }
+
+  Future<void> saveDateToSharedPreferences(DateTime date) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('lastTransactionDate', date.toIso8601String());
+  }
+
+  Future<String?> getDateFromSharedPreferences() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('lastTransactionDate');
+  }
+
+  Future<double> fetchUsdtToDollarRate() async {
+    final url =
+        'https://api.coingecko.com/api/v3/simple/price?ids=usd-coin&vs_currencies=usd';
+    try {
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        return data['usd-coin']['usd'];
+      } else {
+        throw Exception('Failed to load conversion rate');
+      }
+    } catch (e) {
+      print(e);
+      return 1.0; // Default to 1 if fetching fails
+    }
   }
 
   @override
@@ -175,7 +221,7 @@ class _EtwallState extends State<Etwall> with SingleTickerProviderStateMixin {
                           height: 20,
                         ),
                         const Text(
-                          'ETH Balance',
+                          'USDT Balance',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 12,
@@ -188,22 +234,24 @@ class _EtwallState extends State<Etwall> with SingleTickerProviderStateMixin {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             const Text(
-                              '0.0',
+                              '15',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 30,
                                   fontWeight: FontWeight.w700),
                             ),
-                            Image.asset(
-                              'lib/images/eth2.png',
-                              width: 30,
-                              height: 30,
+                            Container(
+                              child: Image.asset(
+                                'lib/images/usdt2.png',
+                                width: 30,
+                                height: 30,
+                              ),
                             ),
                           ],
                         ),
-                        const Text(
-                          '\$0.00',
-                          style: TextStyle(
+                        Text(
+                          '\$${dollarEquivalent.toStringAsFixed(2)}',
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 12,
                               fontWeight: FontWeight.w300),
@@ -286,41 +334,93 @@ class _EtwallState extends State<Etwall> with SingleTickerProviderStateMixin {
                     ],
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 50,
                   ),
-                  Column(
-                    children: [
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      Image.asset(
-                        'lib/images/voltscancel.png',
-                        width: 30,
-                        height: 30,
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      const Text(
-                        'No Transactions',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      const Text(
-                        'You are yet to make a transaction. Any transaction made will show up here',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Color(0xFF8A8A8A),
-                            fontSize: 10,
-                            fontWeight: FontWeight.w300),
+                  Row(
+                    children: const [
+                      Text(
+                        'Transactions',
+                        style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ],
-                  )
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      height: 50,
+                      padding: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Color(0xFF1C1C1C)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: const EdgeInsets.all(6),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Color(0xFF12E2E2E),
+                              ),
+                              child: const Icon(
+                                Icons.arrow_downward,
+                                color: Colors.white,
+                                size: 16,
+                              )),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                Text(
+                                  'Received',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 12),
+                                ),
+                                Text(
+                                  'Sign up bonus',
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 152, 152, 152),
+                                      fontSize: 12),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                '+12 USDT',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 12),
+                              ),
+                              const SizedBox(
+                                height: 4,
+                              ),
+                              Text(
+                                '${currentDate.day}/${currentDate.month}/${currentDate.year}',
+                                style: const TextStyle(
+                                    color: Color.fromARGB(255, 152, 152, 152),
+                                    fontSize: 10),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
                 ],
               ),
             ),
