@@ -1,37 +1,30 @@
 import 'dart:async';
-import 'dart:js' as js;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:votev/connects.dart';
 import 'notifications.dart';
 import 'conts.dart';
 import 'dart:ui';
-import 'utils/dialog_util.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Hume extends StatefulWidget {
+  const Hume({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  State<Hume> createState() => _HumeState();
 }
 
-class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
+class _HumeState extends State<Hume>
+    with WidgetsBindingObserver, SingleTickerProviderStateMixin {
   int counter = 0;
-  int farmCounter = 0;
+  int energy = 100; // Initialize energy to 100
   late AnimationController _controller;
   late Animation<double> _animation;
-  Timer? _farmTimer;
-  DateTime? _farmStartTime;
-  static const Duration farmDuration = Duration(minutes: 1);
-  late Animation<double> _scaleAnimation;
-  late AnimationController _controller2;
-
-  double? viewportStableHeight;
+  Timer? _energyRechargeTimer;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 100),
@@ -40,45 +33,40 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     );
     _animation = CurvedAnimation(parent: _controller, curve: Curves.bounceOut);
     _loadCounter();
-    _loadFarmCounter();
-    // Call the JavaScript function to get the stable height
-    // getViewportStableHeight();
-
-    _scaleAnimation = Tween<double>(begin: 0.4, end: 0.6).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Curves.easeInOut,
-      ),
-    );
+    _loadEnergy();
+    _startEnergyRechargeTimer();
   }
-
-  /*void getViewportStableHeight() {
-    final height = js.context.callMethod('getViewportStableHeight');
-    setState(() {
-      viewportStableHeight = height.toDouble();
-    });
-  }
-
-  void closeWindow() {
-    js.context.callMethod('closeWindow');
-  } */
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _controller.dispose();
-    //_controller2.dispose();
-    _farmTimer?.cancel();
+    _energyRechargeTimer?.cancel();
     super.dispose();
   }
 
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.inactive ||
+        state == AppLifecycleState.detached) {
+      _saveEnergy();
+    } else if (state == AppLifecycleState.resumed) {
+      _loadEnergy();
+    }
+  }
+
   void _incrementCounter() {
-    setState(() {
-      counter++;
-    });
-    _saveCounter();
-    _controller.forward().then((_) {
-      _controller.reverse();
-    });
+    if (energy > 0) {
+      setState(() {
+        counter++;
+        energy--;
+      });
+      _saveCounter();
+      _controller.forward().then((_) {
+        _controller.reverse();
+      });
+    }
   }
 
   Future<void> _loadCounter() async {
@@ -93,76 +81,35 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     prefs.setInt('counter', counter);
   }
 
-  Future<void> _loadFarmCounter() async {
+  Future<void> _loadEnergy() async {
     final prefs = await SharedPreferences.getInstance();
+    int savedEnergy = prefs.getInt('energy') ?? 100;
+    int lastUpdated =
+        prefs.getInt('lastUpdated') ?? DateTime.now().millisecondsSinceEpoch;
+
+    final now = DateTime.now().millisecondsSinceEpoch;
+    final elapsed = now - lastUpdated;
+    final increment = elapsed ~/ 1000; // Increment energy per second
+
     setState(() {
-      farmCounter = prefs.getInt('farmCounter') ?? 0;
-      final startTimeMillis = prefs.getInt('farmStartTime');
-      if (startTimeMillis != null) {
-        _farmStartTime = DateTime.fromMillisecondsSinceEpoch(startTimeMillis);
-        final elapsed = DateTime.now().difference(_farmStartTime!);
-        if (elapsed < farmDuration) {
-          _startFarmCounter(farmDuration - elapsed);
-        } else {
-          _farmCounterComplete();
+      energy = (savedEnergy + increment).clamp(0, 100);
+    });
+  }
+
+  Future<void> _saveEnergy() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setInt('energy', energy);
+    prefs.setInt('lastUpdated', DateTime.now().millisecondsSinceEpoch);
+  }
+
+  void _startEnergyRechargeTimer() {
+    _energyRechargeTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        if (energy < 100) {
+          energy++;
         }
-      }
-    });
-  }
-
-  Future<void> _saveFarmCounter() async {
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setInt('farmCounter', farmCounter);
-    if (_farmStartTime != null) {
-      prefs.setInt('farmStartTime', _farmStartTime!.millisecondsSinceEpoch);
-    }
-  }
-
-  void _startFarmCounter(Duration duration) {
-    _farmTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {
-        farmCounter++;
       });
-      _saveFarmCounter();
-      if (DateTime.now().difference(_farmStartTime!) >= farmDuration) {
-        _farmCounterComplete();
-      }
     });
-  }
-
-  void _farmCounterComplete() {
-    _farmTimer?.cancel();
-    setState(() {
-      _farmStartTime = null;
-    });
-    _saveFarmCounter();
-  }
-
-  void _onFarmTapped() {
-    if (_farmStartTime == null) {
-      setState(() {
-        _farmStartTime = DateTime.now();
-      });
-      _saveFarmCounter();
-      _startFarmCounter(farmDuration);
-    } else {
-      setState(() {
-        counter += farmCounter;
-        farmCounter = 0;
-        _farmStartTime = DateTime.now();
-      });
-      _saveCounter();
-      _saveFarmCounter();
-      _startFarmCounter(farmDuration);
-    }
-  }
-
-  double _getProgress() {
-    if (_farmStartTime == null) return 0;
-    final totalDuration = farmDuration.inSeconds;
-    final elapsedDuration =
-        DateTime.now().difference(_farmStartTime!).inSeconds;
-    return elapsedDuration / totalDuration;
   }
 
   void _showModal() {
@@ -196,7 +143,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 animation: _controller,
                 builder: (context, child) {
                   return Transform.scale(
-                    scale: _scaleAnimation.value,
+                    scale: _animation.value,
                     child: child,
                   );
                 },
@@ -212,7 +159,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       },
     );
 
-    // Close the loading dialog after 5 seconds
+    // Close the loading dialog after 2 seconds
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context).pop();
       _showModal();
@@ -229,12 +176,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            //if (viewportStableHeight != null)
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'Votex',
+                  'Vortex',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
@@ -372,9 +318,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                           const SizedBox(
                             width: 4,
                           ),
-                          const Text(
-                            '700 / 700',
-                            style: TextStyle(color: Colors.white, fontSize: 12),
+                          Text(
+                            '$energy / 100', // Display the current energy
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 12),
                           ),
                         ],
                       ),
@@ -399,11 +346,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(10),
                               child: LinearProgressIndicator(
-                                value: _getProgress(),
                                 backgroundColor:
                                     const Color.fromARGB(255, 102, 102, 102),
                                 valueColor: const AlwaysStoppedAnimation<Color>(
                                     Color.fromARGB(255, 29, 255, 37)),
+                                value: energy / 100, // Update the progress
                                 minHeight: 10,
                               ),
                             ),
@@ -414,33 +361,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   ],
                 ),
                 const SizedBox(height: 20),
-                GestureDetector(
-                  onTap: _onFarmTapped,
-                  child: Container(
-                    height: 60,
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 195, 255, 175),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Farm',
-                          style: TextStyle(color: Colors.black, fontSize: 16),
-                        ),
-                        Image.asset(
-                          'lib/images/bolts.png',
-                          width: 20,
-                          height: 20,
-                        ),
-                        Text(
-                          '$farmCounter',
-                          style: TextStyle(color: Colors.black, fontSize: 16),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
                 const SizedBox(
                   height: 20,
                 )

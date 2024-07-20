@@ -6,6 +6,7 @@ import 'package:votev/history.dart';
 import 'package:votev/leaderboard.dart';
 import 'package:votev/profile.dart';
 import 'package:votev/refs.dart';
+import 'package:votev/reuse.dart';
 import 'package:votev/welcome.dart';
 
 class Dashboard extends StatefulWidget {
@@ -18,7 +19,7 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   final String message = '';
   int myIndex = 0;
-  List<Widget> widgetList = const [Home(), Friendz(), Connets(), Profile()];
+  List<Widget> widgetList = const [Hume(), Friendz(), Connets(), Profile()];
 
   @override
   Widget build(BuildContext context) {

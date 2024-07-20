@@ -94,7 +94,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 4,
                                         ),
                                         const Text(
-                                          'Regular Votev',
+                                          'Regular Vortev',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,
@@ -182,7 +182,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 4,
                                         ),
                                         const Text(
-                                          'Mega Votev',
+                                          'Mega Vortev',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,
@@ -274,7 +274,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 4,
                                         ),
                                         const Text(
-                                          'Ultra Votev',
+                                          'Ultra Vortev',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,
@@ -362,7 +362,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 4,
                                         ),
                                         const Text(
-                                          'Hyper Votev',
+                                          'Hyper Vortev',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,

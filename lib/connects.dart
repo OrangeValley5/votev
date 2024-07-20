@@ -500,7 +500,7 @@ class _ConnetsState extends State<Connets> with TickerProviderStateMixin {
                               width: 4,
                             ),
                             const Text(
-                              'VOTEX',
+                              'VORTEX',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,
