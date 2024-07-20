@@ -147,11 +147,11 @@ class _FriendzState extends State<Friendz> {
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(10)),
               child: const Text(
-                ' Friends  Invited',
-                style: TextStyle(fontSize: 14, color: Colors.white),
+                ' Friends Invited',
+                style: TextStyle(fontSize: 12, color: Colors.white),
               ),
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 3),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(

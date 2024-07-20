@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:ui';
+import 'utils.dart';
+import 'utils/dialog_util.dart';
 
 class RemoveEt extends StatefulWidget {
   const RemoveEt({Key? key}) : super(key: key);
@@ -22,7 +24,7 @@ class _RemoveEtState extends State<RemoveEt> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _fetchUsdtToUsdRate();
+    _initialize();
     _usdtController.addListener(_updateDollarEquivalent);
 
     _slideController = AnimationController(
@@ -50,27 +52,16 @@ class _RemoveEtState extends State<RemoveEt> with TickerProviderStateMixin {
     );
   }
 
-  Future<void> _fetchUsdtToUsdRate() async {
-    try {
-      final response = await http.get(Uri.parse(
-          'https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd'));
-      if (response.statusCode == 200) {
-        final data = json.decode(response.body);
-        setState(() {
-          _usdtToUsdRate = data['tether']['usd'].toDouble();
-        });
-      } else {
-        throw Exception('Failed to fetch exchange rate');
-      }
-    } catch (e) {
-      print('Error fetching exchange rate: $e');
-    }
+  Future<void> _initialize() async {
+    _usdtToUsdRate = await CurrencyConversionUtil.fetchUsdtToUsdRate();
+    setState(() {});
   }
 
   void _updateDollarEquivalent() {
     final usdtAmount = double.tryParse(_usdtController.text) ?? 0.0;
     setState(() {
-      _dollarEquivalent = (usdtAmount * _usdtToUsdRate).toStringAsFixed(2);
+      _dollarEquivalent = CurrencyConversionUtil.calculateDollarEquivalent(
+          usdtAmount, _usdtToUsdRate);
     });
   }
 
@@ -78,158 +69,8 @@ class _RemoveEtState extends State<RemoveEt> with TickerProviderStateMixin {
   void dispose() {
     _usdtController.dispose();
     _slideController.dispose();
+    _controller.dispose();
     super.dispose();
-  }
-
-  void _showWelcomeDialog() {
-    Future.delayed(Duration.zero, () {
-      _slideController.forward();
-      showDialog(
-        context: context,
-        barrierDismissible: true,
-        builder: (BuildContext context) {
-          return SlideTransition(
-            position: _offsetAnimation,
-            child: Padding(
-              padding: const EdgeInsets.all(30.0),
-              child: Dialog(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
-                  side: const BorderSide(
-                    color: Color.fromARGB(255, 51, 51, 51),
-                    width: 1.0,
-                  ),
-                ),
-                backgroundColor: Color.fromARGB(255, 24, 24, 24),
-                child: Container(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        width: 40,
-                        height: 40,
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: const Color.fromARGB(255, 255, 69, 69)
-                              .withOpacity(0.2), // Adjust opacity here
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Text(
-                              '!',
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 255, 8, 8),
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      const Text(
-                        'Oops',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'Bonus balance is locked. Perform any transaction between 5-10 USDT to unlock and withdraw your bonus',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 183, 183, 183),
-                          fontSize: 10,
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
-                      const SizedBox(height: 30),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 10,
-                                horizontal: 20,
-                              ),
-                              child: const Text(
-                                'Continue',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Color.fromARGB(255, 255, 255, 255),
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          );
-        },
-      ).then((_) => _slideController.reset());
-    });
-  }
-
-  void _showLoadingDialog() {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) {
-        return Stack(
-          children: [
-            // Blurred background
-            BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-              child: Container(
-                color: Colors.black.withOpacity(0.2),
-              ),
-            ),
-            // Loading animation
-            Center(
-              child: AnimatedBuilder(
-                animation: _controller,
-                builder: (context, child) {
-                  return Transform.scale(
-                    scale: _scaleAnimation.value,
-                    child: child,
-                  );
-                },
-                child: Image.asset(
-                  'lib/images/bolts.png',
-                  width: 100,
-                  height: 100,
-                ),
-              ),
-            ),
-          ],
-        );
-      },
-    );
-
-    // Close the loading dialog after 3 seconds
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.of(context).pop();
-      _showWelcomeDialog();
-    });
   }
 
   @override
@@ -401,7 +242,13 @@ class _RemoveEtState extends State<RemoveEt> with TickerProviderStateMixin {
             ),
             GestureDetector(
               onTap: () {
-                _showLoadingDialog();
+                DialogUtil.showLoadingDialog(
+                  context,
+                  _controller,
+                  _scaleAnimation,
+                  _slideController,
+                  _offsetAnimation,
+                );
               },
               child: Container(
                 width: MediaQuery.of(context).size.width,
