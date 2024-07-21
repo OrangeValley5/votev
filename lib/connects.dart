@@ -227,7 +227,7 @@ class _ConnetsState extends State<Connets> with TickerProviderStateMixin {
                       ),
                       const SizedBox(height: 10),
                       const Text(
-                        'Yay! You just earned 10 USDT for joining. We are giving out 10 USDT to the first 1000 players who join the volts telegram game. You can view this in your wallet.',
+                        'Yay! You just earned 15 USDT for joining. We are giving out 15 USDT to the first 1000 players who join the Vortex telegram game. You can view your balance in your wallet.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Color.fromARGB(255, 183, 183, 183),
