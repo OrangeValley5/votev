@@ -359,7 +359,7 @@ class _EtwallState extends State<Etwall> with SingleTickerProviderStateMixin {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Container(
-                              padding: const EdgeInsets.all(6),
+                              padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
                                 color: Color(0xFF12E2E2E),
@@ -386,7 +386,7 @@ class _EtwallState extends State<Etwall> with SingleTickerProviderStateMixin {
                                   'Sign up bonus',
                                   style: TextStyle(
                                       color: Color.fromARGB(255, 152, 152, 152),
-                                      fontSize: 12),
+                                      fontSize: 10),
                                 ),
                               ],
                             ),
@@ -396,7 +396,7 @@ class _EtwallState extends State<Etwall> with SingleTickerProviderStateMixin {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const Text(
-                                '+12 USDT',
+                                '+15 USDT',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 12),
                               ),

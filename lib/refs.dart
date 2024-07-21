@@ -80,7 +80,7 @@ class _FriendzState extends State<Friendz> {
               height: 20,
             ),
             const Text(
-              'Earn 20% for your direct referrals, 10% for their referrals, then 5%, 2.5%, and 1.25% for your fifth-level referrals. Plus earn up to 25,000 VORTEX for each invite, while your friend receives 30,000!',
+              'Earn 20% for your direct referrals, 10% for their referrals. Earn up to 25,000 VORTEX & 5USDT for each invite, while your friend receives 40,000!',
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.white, fontSize: 12),
             ),

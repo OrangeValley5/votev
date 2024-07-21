@@ -149,35 +149,34 @@ class Item {
 List<Item> generateItems() {
   return [
     Item(
-      headerValue: 'What is Votex?',
-      expandedValue:
-          'QuickXchange is a crypto-to-fiat payment service that enables users to easily and seamlessly convert crypto to fiat(Naira), and directly send to wallet or bank account.',
+      headerValue: 'What is Vortex?',
+      expandedValue: 'Vortex is a decentalized web3 telegram based game',
     ),
     Item(
-      headerValue: 'How does Votex work?',
+      headerValue: 'How does Vortex work?',
       expandedValue:
-          'The QuickXchange app works using a blockchain infrastructure, and a local P2P settlement system. Users are required to download the app and send assets to the provided wallet address, which is then converted to Naira and sent to their bank account.',
+          'The Vortex telegram based game work through the tapping mechanism. Mine coins invite friends and earn',
     ),
 
     Item(
-      headerValue: 'Does Votex support all crypto-currencies?',
+      headerValue: 'Does Vortex support all crypto-currencies?',
       expandedValue:
           'No, Not at this time. We only support a few assets for now which includes, BTC, ETH, USDT and USDC. However we are making plans to increase our supported cryptocurrencies',
     ),
     Item(
-      headerValue: 'Who can use Votex?',
+      headerValue: 'Who can use Vortex?',
       expandedValue:
           'Anyone can make use of our service. Crypto users, Diaspora community, Remote workers and freelancers',
     ),
 
     Item(
-      headerValue: 'How can i start using the Votex app?',
+      headerValue: 'How can i start using the Vortex app?',
       expandedValue:
-          '1.Download and install the app from any of the stores 2.Open the app after downloading 3. Register your required bank or leave it empty to receive funds in your wallet 4.Now you are all set 5.Navigate to the asset you want to convert from the home screen and copy the provided address  6.Send asset and receive funds immediately after confirmation. ',
+          '1.Open and install the launch the app 2. Launch the app after visiting the telegram channel 3. Register your required bank or leave it empty to receive funds in your wallet 4.Now you are all set 5.Navigate to the asset you want to convert from the home screen and copy the provided address  6.Send asset and receive funds immediately after confirmation. ',
     ),
 
     Item(
-      headerValue: 'Can i change my withdrawal bank details anytime?',
+      headerValue: 'Can i change my withdrawal ?',
       expandedValue: 'Yes, you can choose to change it anytime you wish.',
     ),
 
@@ -190,7 +189,7 @@ List<Item> generateItems() {
     Item(
       headerValue: 'How much can i withdraw at a time?',
       expandedValue:
-          'There is no minimum or maximum amount that can be cashed out using the QuickXchange app. The service is constantly adapting to users needs.',
+          'There is no minimum or maximum amount that can be cashed out using the Vortex app. The service is constantly adapting to users needs.',
     ),
 
     Item(

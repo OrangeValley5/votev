@@ -53,7 +53,7 @@ class Conts extends StatelessWidget {
                       width: 4,
                     ),
                     const Text(
-                      '427M',
+                      '42M',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
@@ -111,7 +111,7 @@ class Conts extends StatelessWidget {
                       width: 4,
                     ),
                     const Text(
-                      '400M',
+                      '40M',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
@@ -169,7 +169,7 @@ class Conts extends StatelessWidget {
                       width: 4,
                     ),
                     const Text(
-                      '388M',
+                      '24M',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
@@ -227,7 +227,7 @@ class Conts extends StatelessWidget {
                       width: 4,
                     ),
                     const Text(
-                      '370M',
+                      '18M',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
@@ -285,7 +285,7 @@ class Conts extends StatelessWidget {
                       width: 4,
                     ),
                     const Text(
-                      '340M',
+                      '12M',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
@@ -343,7 +343,7 @@ class Conts extends StatelessWidget {
                       width: 4,
                     ),
                     const Text(
-                      '291M',
+                      '9M',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),

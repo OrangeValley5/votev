@@ -94,7 +94,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 4,
                                         ),
                                         const Text(
-                                          'Regular Vortev',
+                                          'Regular Vortex',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,
@@ -182,7 +182,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 4,
                                         ),
                                         const Text(
-                                          'Mega Vortev',
+                                          'Mega Vortex',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,
@@ -274,7 +274,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 4,
                                         ),
                                         const Text(
-                                          'Ultra Vortev',
+                                          'Ultra Vortex',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,
@@ -362,7 +362,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 4,
                                         ),
                                         const Text(
-                                          'Hyper Vortev',
+                                          'Hyper Vortex',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,
@@ -454,7 +454,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 4,
                                         ),
                                         const Text(
-                                          'Thunder Votev',
+                                          'Thunder Vortex',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,
@@ -542,7 +542,7 @@ class _NotificationsState extends State<Notifications> {
                                           height: 4,
                                         ),
                                         const Text(
-                                          'Turbo Votev',
+                                          'Turbo Vortex',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,

@@ -87,6 +87,11 @@ class _DepoState extends State<Depo> {
                         Clipboard.setData(
                           ClipboardData(text: textToCopy),
                         );
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Address copied to clipboard!'),
+                          ),
+                        );
                       },
                       child: const Icon(
                         Icons.copy,
@@ -161,7 +166,7 @@ class _DepoState extends State<Depo> {
                         Column(
                           children: [
                             Image.asset(
-                              'lib/images/eth2.png',
+                              'lib/images/usdt2.png',
                               width: 35,
                               height: 35,
                             ),
